@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block content %}
+<!-- ==========================================
+     HERO SECTION
+=========================================== -->
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-[#050505] overflow-hidden border-b border-zinc-900">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1512453979434-d4ce23d84a7e?auto=format&fit=crop&w=2000&q=80" class="w-full h-full object-cover opacity-20 mix-blend-luminosity" alt="Ajman Skyline">
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-50 via-[#050505]/80 to-[#050505]/80"></div>
+    </div>
+    <div class="max-w-[90rem] mx-auto px-6 relative z-10 text-center reveal">
+        <span class="inline-block border border-gold/40 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-[0.3em] px-4 py-2 mb-6 shadow-sm">{% trans "Our Heritage" %}</span>
+        <h1 class="text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
+            {% trans "A Legacy of Trust." %}<br>
+            <span class="text-gold">{% trans "Built for Generations." %}</span>
+        </h1>
+    </div>
+</section>
+
+<!-- ==========================================
+     THE LEGACY & EDITORIAL STORY
+=========================================== -->
+<section class="py-20 md:py-32 bg-zinc-50 border-b border-zinc-200 relative z-10 -mt-10">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="bg-white border border-zinc-200 p-8 md:p-20 shadow-xl flex flex-col lg:flex-row gap-16 items-start rounded-none reveal">
+
+            <div class="w-full lg:w-1/3 lg:sticky lg:top-32">
+                <h2 class="text-4xl md:text-5xl font-black mb-6 leading-[1.1] text-zinc-900 tracking-tight">{% trans "Rooted in Traditions." %}<br><span class="text-zinc-400">{% trans "Built for the Future." %}</span></h2>
+                <div class="w-12 h-1 bg-gold mb-6"></div>
+                <p class="text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-500">{% trans "Over 50 Years of Excellence" %}</p>
+            </div>
+
+            <div class="w-full lg:w-2/3 space-y-8 text-sm md:text-base text-zinc-600 leading-relaxed font-medium text-justify">
+                <p class="text-xl md:text-2xl font-bold text-zinc-900 leading-snug">
+                    {% trans "Edrak Properties stands as a paragon of real estate excellence in Ajman and the wider United Arab Emirates, commanding a portfolio built on half a century of market mastery." %}
+                </p>
+                <p>
+                    {% trans "Previously known as the highly esteemed Yousuf Bin Nasser & Sons Real Estate, we established the bedrock of the property market in Ajman over fifty years ago. Our foundational years were defined by pioneering developments, unshakeable trust, and the cultivation of generational relationships. To meet the rigorous demands of a globalized economy, we have evolved and rebranded as Edrak Properties—a name that reflects our forward-thinking ethos while remaining deeply anchored in the traditional values that brought us decades of success." %}
+                </p>
+                <p>
+                    {% trans "Today, we have successfully bridged our legacy of market dominance with cutting-edge property management, data-driven yield optimization, and modern digital infrastructure. Our dedicated team of investment advisors, legal experts, and facility managers work relentlessly to elevate the standard of living and investment across the Emirates." %}
+                </p>
+                <p>
+                    {% trans "Whether you are a local family seeking a forever home, a corporate entity acquiring commercial hubs in the Industrial Freezone, or an international investor pursuing high-yield capital appreciation in the tax-free haven of the U.A.E., Edrak Properties provides the end-to-end operational framework required to secure and scale your wealth." %}
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     MISSION & VISION
+=========================================== -->
+<section class="py-24 bg-white border-b border-zinc-200">
+    <div class="max-w-[90rem] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+        <div class="border border-zinc-200 bg-zinc-50 p-10 md:p-16 hover:shadow-lg transition-shadow rounded-none group">
+            <div class="w-16 h-16 bg-white border border-zinc-200 text-gold flex items-center justify-center mb-8 shadow-sm group-hover:border-gold transition-colors rounded-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="text-3xl font-black text-zinc-900 uppercase tracking-tight mb-6">{% trans "Our Mission" %}</h3>
+            <p class="text-zinc-600 leading-relaxed font-medium text-sm md:text-base text-justify">
+                {% trans "To engineer unparalleled real estate infrastructure that empowers investors, nurtures communities, and redefines the standard of luxury living across the UAE. We meticulously manage, develop, and acquire properties that yield sustainable, long-term capital appreciation, ensuring every asset under our stewardship operates at absolute peak efficiency." %}
+            </p>
+        </div>
+
+        <div class="border border-zinc-200 bg-zinc-50 p-10 md:p-16 hover:shadow-lg transition-shadow rounded-none group">
+            <div class="w-16 h-16 bg-white border border-zinc-200 text-gold flex items-center justify-center mb-8 shadow-sm group-hover:border-gold transition-colors rounded-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            </div>
+            <h3 class="text-3xl font-black text-zinc-900 uppercase tracking-tight mb-6">{% trans "Our Vision" %}</h3>
+            <p class="text-zinc-600 leading-relaxed font-medium text-sm md:text-base text-justify">
+                {% trans "To be the premier architectural and property management institution in the Middle East. We envision a landscape where traditional values of trust and transparency seamlessly integrate with cutting-edge prop-tech and data-driven yield advisory, making Edrak the ultimate conduit for global capital entering the UAE real estate sector." %}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     OUR INFRASTRUCTURE (SVG GRID)
+=========================================== -->
+<section class="py-24 bg-zinc-50 border-b border-zinc-200">
+    <div class="max-w-[90rem] mx-auto px-6 reveal">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-zinc-900 tracking-tight mb-4">{% trans "A Dedicated Infrastructure" %}</h2>
+            <p class="text-zinc-500 font-bold uppercase tracking-widest text-[10px]">{% trans "Operational Excellence at Every Level" %}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-zinc-200">
+            <div class="p-10 border-r border-b border-zinc-200 hover:bg-white transition-colors group bg-zinc-50">
+                <div class="w-12 h-12 bg-white border border-zinc-200 text-gold flex items-center justify-center mb-6 shadow-sm group-hover:border-gold transition-colors rounded-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                </div>
+                <h4 class="text-lg font-black text-zinc-900 uppercase tracking-widest mb-3">{% trans "Market Intelligence" %}</h4>
+                <p class="text-xs text-zinc-500 leading-relaxed font-medium">{% trans "Leveraging 50 years of proprietary data to identify high-yield investment zones and execute flawless acquisitions." %}</p>
+            </div>
+
+            <div class="p-10 border-r border-b border-zinc-200 hover:bg-white transition-colors group bg-zinc-50">
+                <div class="w-12 h-12 bg-white border border-zinc-200 text-gold flex items-center justify-center mb-6 shadow-sm group-hover:border-gold transition-colors rounded-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h4 class="text-lg font-black text-zinc-900 uppercase tracking-widest mb-3">{% trans "Dedicated Team" %}</h4>
+                <p class="text-xs text-zinc-500 leading-relaxed font-medium">{% trans "An elite, in-house team of sales directors, legal consultants, and facility managers providing 24/7 operational care." %}</p>
+            </div>
+
+            <div class="p-10 border-r border-b border-zinc-200 hover:bg-white transition-colors group bg-zinc-50">
+                <div class="w-12 h-12 bg-white border border-zinc-200 text-gold flex items-center justify-center mb-6 shadow-sm group-hover:border-gold transition-colors rounded-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h4 class="text-lg font-black text-zinc-900 uppercase tracking-widest mb-3">{% trans "Asset Maximization" %}</h4>
+                <p class="text-xs text-zinc-500 leading-relaxed font-medium">{% trans "Strategic rent pricing models, minimal vacancy rates, and stringent tenant matchmaking to ensure premium ROI." %}</p>
+            </div>
+
+            <div class="p-10 border-r border-b border-zinc-200 hover:bg-white transition-colors group bg-zinc-50">
+                <div class="w-12 h-12 bg-white border border-zinc-200 text-gold flex items-center justify-center mb-6 shadow-sm group-hover:border-gold transition-colors rounded-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                </div>
+                <h4 class="text-lg font-black text-zinc-900 uppercase tracking-widest mb-3">{% trans "Global Capital" %}</h4>
+                <p class="text-xs text-zinc-500 leading-relaxed font-medium">{% trans "Facilitating seamless property acquisitions for international investors looking to scale portfolios in the tax-free U.A.E." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     RANDOMIZED GALLERY (FULL COLOR)
+=========================================== -->
+<section class="py-24 bg-white border-b border-zinc-200">
+    <div class="max-w-[90rem] mx-auto px-6 reveal">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+            <div>
+                <h2 class="text-4xl font-black text-zinc-900 tracking-tight mb-2">{% trans "A Glimpse of Our Portfolio" %}</h2>
+                <p class="text-zinc-500 font-bold uppercase tracking-widest text-[10px]">{% trans "Captured Across Our Developments" %}</p>
+            </div>
+            <a href="{% url 'projects' %}" class="mt-6 md:mt-0 text-[10px] font-bold uppercase tracking-widest text-gold hover:text-black transition-colors border-b border-gold pb-1">
+                {% trans "View All Projects" %} ➔
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {% for project in random_gallery %}
+                <a href="{% url 'project_detail' project.id %}" class="relative h-48 md:h-80 group overflow-hidden border border-zinc-200 bg-zinc-100 block cursor-crosshair rounded-none">
+                    <img src="{{ project.image.url }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-[1.5s]">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span class="text-white text-[10px] font-bold uppercase tracking-widest border border-white px-4 py-2 hidden md:inline-block">{% trans "View Project" %}</span>
+                    </div>
+                </a>
+            {% empty %}
+                <div class="relative h-48 md:h-80 group overflow-hidden border border-zinc-200 bg-zinc-100 block rounded-none"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative h-48 md:h-80 group overflow-hidden border border-zinc-200 bg-zinc-100 block rounded-none"><img src="https://images.unsplash.com/photo-1628611225249-6c117d60ed30?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover"></div>
+                <div class="relative h-48 md:h-80 group overflow-hidden border border-zinc-200 bg-zinc-100 block rounded-none hidden md:block"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover"></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     HEADQUARTERS & MAP (FULL COLOR)
+=========================================== -->
+<section class="py-24 bg-zinc-50 relative z-10">
+    <div class="max-w-[90rem] mx-auto px-6 reveal">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-zinc-900 tracking-tight mb-4">{% trans "Our Headquarters" %}</h2>
+            <p class="text-zinc-500 font-bold uppercase tracking-widest text-[10px]">{% trans "Ajman, United Arab Emirates" %}</p>
+        </div>
+
+        <!-- Google Maps Embed for Edrak Properties -->
+<div class="w-full h-[300px] md:h-[500px] border border-zinc-200 shadow-xl bg-zinc-100 p-2 rounded-none">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d450.51491963374406!2d55.44820649250039!3d25.400815004321903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f59316971fcd9%3A0xf308505033ebcc5f!2z2KfYr9ix2KfZgyDYp9mE2LnZgtin2LHZitipIC0gRURSQUsgUFJPUEVSVElFUw!5e0!3m2!1sen!2sae!4v1791704023226!5m2!1sen!2sae"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+    </div>
+</section>
+
+<script>
+    function reveal() { document.querySelectorAll(".reveal").forEach(r => { if(r.getBoundingClientRect().top < window.innerHeight - 100) r.classList.add("active"); }); }
+    window.addEventListener("scroll", reveal); reveal();
+</script>
+{% endblock %}

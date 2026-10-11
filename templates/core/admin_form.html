@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<style>
+    form input[type="text"], form input[type="number"], form input[type="file"], form select, form textarea {
+        width: 100%; border: 1px solid #e4e4e7; padding: 1rem; background-color: transparent;
+        border-radius: 0px; outline: none; font-weight: 500; font-size: 0.875rem; color: #18181b;
+        transition: border-color 0.3s ease;
+    }
+    form input[type="checkbox"] { width: auto; margin-right: 10px; }
+    form input:focus, form select:focus, form textarea:focus { border-color: #C59D3F; }
+    form label { display: block; margin-bottom: 0.5rem; font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.1em; color: #71717a; }
+    form .helptext { display: block; margin-top: 0.25rem; font-size: 10px; color: #a1a1aa; }
+    .formset-row { position: relative; padding-right: 40px; margin-bottom: 1rem; }
+    .delete-row { position: absolute; right: 0; top: 35px; color: red; font-weight: bold; cursor: pointer; }
+</style>
+
+<section class="pt-32 pb-10 bg-zinc-50 border-b border-zinc-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <a href="{% url 'custom_admin' %}" class="text-[10px] font-bold uppercase tracking-widest text-gold hover:text-black transition-colors mb-4 inline-block">⟵ {% trans "Back to Dashboard" %}</a>
+        <h1 class="text-4xl font-black text-zinc-900 tracking-tight uppercase">
+            {% if instance %}{% trans "Edit" %}{% else %}{% trans "Add New" %}{% endif %} {{ item_type|title }}
+        </h1>
+    </div>
+</section>
+
+<section class="py-16 bg-white min-h-[60svh]">
+    <div class="max-w-4xl mx-auto px-6">
+        <form method="POST" enctype="multipart/form-data" class="space-y-12">
+            {% csrf_token %}
+
+            <!-- Main Model Form -->
+            <div>
+                <h3 class="text-xl font-black uppercase tracking-widest text-zinc-900 mb-6 border-b border-zinc-200 pb-2">{% trans "Main Details" %}</h3>
+                <div class="space-y-6">
+                    {% for field in form %}
+                        <div class="bg-zinc-50 p-6 border border-zinc-200 shadow-sm">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.help_text %}<span class="helptext">{{ field.help_text }}</span>{% endif %}
+                            {% if field.errors %}<div class="text-red-500 text-xs mt-2 font-bold">{{ field.errors }}</div>{% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Features Formset -->
+            <div>
+                <h3 class="text-xl font-black uppercase tracking-widest text-zinc-900 mb-6 border-b border-zinc-200 pb-2">{% trans "Dynamic Features" %}</h3>
+                <div id="feature-formset-container" class="bg-zinc-50 p-6 border border-zinc-200 shadow-sm">
+                    {{ feature_formset.management_form }}
+                    {% for f in feature_formset %}
+                        <div class="formset-row feature-row">
+                            {{ f.id }} {{ f.project }} {{ f.lease }}
+                            <label>{% trans "Feature Text" %}</label>
+                            {{ f.feature }}
+                            {% if feature_formset.can_delete %}<div class="mt-2 text-xs text-red-500 font-bold uppercase">{{ f.DELETE }} Delete</div>{% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="button" id="add-feature" class="mt-4 text-xs font-bold uppercase tracking-widest text-gold hover:text-black border border-gold px-4 py-2">+ Add Feature</button>
+            </div>
+
+            <!-- Gallery Formset -->
+            <div>
+                <h3 class="text-xl font-black uppercase tracking-widest text-zinc-900 mb-6 border-b border-zinc-200 pb-2">{% trans "Additional Gallery Images" %}</h3>
+                <div id="image-formset-container" class="bg-zinc-50 p-6 border border-zinc-200 shadow-sm">
+                    {{ image_formset.management_form }}
+                    {% for f in image_formset %}
+                        <div class="formset-row image-row">
+                            {{ f.id }} {{ f.project }} {{ f.lease }}
+                            <label>{% trans "Upload Image" %}</label>
+                            {{ f.image }}
+                            {% if image_formset.can_delete %}<div class="mt-2 text-xs text-red-500 font-bold uppercase">{{ f.DELETE }} Delete</div>{% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="button" id="add-image" class="mt-4 text-xs font-bold uppercase tracking-widest text-gold hover:text-black border border-gold px-4 py-2">+ Add Image</button>
+            </div>
+
+            <div class="pt-10 border-t border-zinc-200 flex justify-end gap-4">
+                <a href="{% url 'custom_admin' %}" class="px-8 py-4 border border-zinc-300 text-zinc-600 font-bold uppercase tracking-widest text-xs hover:bg-zinc-100 transition-colors">{% trans "Cancel" %}</a>
+                <button type="submit" class="bg-gold text-white px-10 py-4 font-black uppercase tracking-widest text-xs hover:bg-black transition-colors shadow-sm border border-gold hover:border-black">
+                    {% trans "Save Details" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Lightweight script to allow adding dynamic rows
+    function addFormsetRow(containerId, btnId, rowClass, prefix) {
+        const btn = document.getElementById(btnId);
+        btn.addEventListener('click', function() {
+            const container = document.getElementById(containerId);
+            const forms = container.querySelectorAll('.' + rowClass);
+            const totalFormsInput = document.getElementById('id_' + prefix + '-TOTAL_FORMS');
+            let formCount = parseInt(totalFormsInput.value);
+
+            // Clone last form
+            const newForm = forms[forms.length - 1].cloneNode(true);
+            const regex = new RegExp('-' + (formCount - 1) + '-', 'g');
+            newForm.innerHTML = newForm.innerHTML.replace(regex, '-' + formCount + '-');
+
+            // Clear values
+            newForm.querySelectorAll('input:not([type=hidden])').forEach(input => { input.value = ''; input.checked = false; });
+
+            container.appendChild(newForm);
+            totalFormsInput.value = formCount + 1;
+        });
+    }
+
+    // Initialize scripts based on which model we are editing
+    const featurePrefix = document.querySelector('input[name$="features-TOTAL_FORMS"]') ? document.querySelector('input[name$="features-TOTAL_FORMS"]').name.split('-')[0] : '';
+    const imagePrefix = document.querySelector('input[name$="gallery-TOTAL_FORMS"]') ? document.querySelector('input[name$="gallery-TOTAL_FORMS"]').name.split('-')[0] : '';
+
+    if(featurePrefix) addFormsetRow('feature-formset-container', 'add-feature', 'feature-row', featurePrefix);
+    if(imagePrefix) addFormsetRow('image-formset-container', 'add-image', 'image-row', imagePrefix);
+</script>
+{% endblock %}

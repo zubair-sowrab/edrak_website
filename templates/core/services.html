@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<style>
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+</style>
+
+<!-- ==========================================
+     HERO SECTION
+=========================================== -->
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#050505] border-b border-zinc-900 overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80" class="w-full h-full object-cover opacity-20 mix-blend-luminosity">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent"></div>
+    </div>
+    <div class="max-w-[90rem] mx-auto px-6 relative z-10 text-center reveal">
+        <span class="inline-block border border-gold/40 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-[0.3em] px-4 py-2 mb-6">{% trans "Our Divisions" %}</span>
+        <h1 class="text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
+            {% trans "Comprehensive" %}<br>
+            <span class="text-gold">{% trans "Solutions." %}</span>
+        </h1>
+        <p class="text-zinc-400 max-w-2xl mx-auto font-medium text-lg leading-relaxed">
+            {% trans "From off-plan acquisitions to elite property management, Edrak provides end-to-end infrastructure for the modern real estate investor across all asset classes." %}
+        </p>
+    </div>
+</section>
+
+<!-- ==========================================
+     SERVICES GRID SECTION (6 DIVISIONS)
+=========================================== -->
+<section class="py-28 bg-[#09090b] relative overflow-hidden">
+    <!-- Subtle Background Grid Pattern -->
+    <div class="absolute inset-0 z-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+
+    <div class="max-w-[90rem] mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+            <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">{% trans "Tailored Expertise" %}</span>
+            <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight">{% trans "Excellence Across Every Pillar & Asset Class" %}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- SERVICE 01: ACQUISITIONS & SALES -->
+            <div class="bg-[#121216] border border-zinc-800/80 p-8 md:p-10 flex flex-col justify-between hover:border-gold/50 transition-all duration-300 reveal group">
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-14 h-14 bg-gold/10 border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-colors duration-300">
+                            <!-- SVG Icon: Building / Real Estate -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <span class="text-zinc-700 font-black text-3xl">01</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{% trans "Acquisitions & Sales" %}</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        {% trans "Leverage localized data in the Ajman and wider U.A.E. market to price, list, and sell with precision. Access exclusive off-plan developments and high-yield secondary market assets." %}
+                    </p>
+                    <ul class="space-y-3 mb-8 border-t border-zinc-800/80 pt-6">
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Off-Plan Investments" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Secondary Market Sales" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Accurate Portfolio Valuation" %}</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="inline-flex items-center justify-center w-full bg-zinc-900 text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-colors border border-zinc-800">
+                    {% trans "Consult an Agent" %}
+                </a>
+            </div>
+
+            <!-- SERVICE 02: LEASING & RENTING -->
+            <div class="bg-[#121216] border border-zinc-800/80 p-8 md:p-10 flex flex-col justify-between hover:border-gold/50 transition-all duration-300 reveal group" style="transition-delay: 100ms;">
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-14 h-14 bg-gold/10 border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-colors duration-300">
+                            <!-- SVG Icon: Key / Leasing -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                        </div>
+                        <span class="text-zinc-700 font-black text-3xl">02</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{% trans "Leasing & Renting" %}</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        {% trans "Eliminating the friction of property leasing. Matching premium tenants with luxury residential and commercial assets with rigorous background screening and digital contracts." %}
+                    </p>
+                    <ul class="space-y-3 mb-8 border-t border-zinc-800/80 pt-6">
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Residential Matchmaking" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Commercial Leasing" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Digital Contract Management" %}</li>
+                    </ul>
+                </div>
+                <a href="{% url 'leases' %}" class="inline-flex items-center justify-center w-full bg-zinc-900 text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-colors border border-zinc-800">
+                    {% trans "View Available Leases" %}
+                </a>
+            </div>
+
+            <!-- SERVICE 03: PROPERTY MANAGEMENT -->
+            <div class="bg-[#121216] border border-zinc-800/80 p-8 md:p-10 flex flex-col justify-between hover:border-gold/50 transition-all duration-300 reveal group" style="transition-delay: 200ms;">
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-14 h-14 bg-gold/10 border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-colors duration-300">
+                            <!-- SVG Icon: Shield / Management -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <span class="text-zinc-700 font-black text-3xl">03</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{% trans "Property Management" %}</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        {% trans "A-Z property management ensuring absentee landlords and international investors generate passive income with zero headache, from maintenance to timely rent collection." %}
+                    </p>
+                    <ul class="space-y-3 mb-8 border-t border-zinc-800/80 pt-6">
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Automated Rent Collection" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "24/7 Facility Maintenance" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Tenant Dispute Resolution" %}</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="inline-flex items-center justify-center w-full bg-zinc-900 text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-colors border border-zinc-800">
+                    {% trans "Assign Your Property" %}
+                </a>
+            </div>
+
+            <!-- SERVICE 04: YIELD ADVISORY -->
+            <div class="bg-[#121216] border border-zinc-800/80 p-8 md:p-10 flex flex-col justify-between hover:border-gold/50 transition-all duration-300 reveal group" style="transition-delay: 300ms;">
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-14 h-14 bg-gold/10 border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-colors duration-300">
+                            <!-- SVG Icon: Trending Up / Advisory -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <span class="text-zinc-700 font-black text-3xl">04</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{% trans "Yield Advisory" %}</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        {% trans "Data-driven ROI optimization and portfolio scaling strategies. Intelligence needed to maximize capital appreciation across residential and commercial holdings." %}
+                    </p>
+                    <ul class="space-y-3 mb-8 border-t border-zinc-800/80 pt-6">
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Market Trend Analysis" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Portfolio Scaling Strategy" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "ROI Optimization" %}</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="inline-flex items-center justify-center w-full bg-zinc-900 text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-colors border border-zinc-800">
+                    {% trans "Book a Strategy Call" %}
+                </a>
+            </div>
+
+            <!-- SERVICE 05: RESIDENTIAL & VILLA ESTATES -->
+            <div class="bg-[#121216] border border-zinc-800/80 p-8 md:p-10 flex flex-col justify-between hover:border-gold/50 transition-all duration-300 reveal group" style="transition-delay: 400ms;">
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-14 h-14 bg-gold/10 border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-colors duration-300">
+                            <!-- SVG Icon: Villa / Home -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        </div>
+                        <span class="text-zinc-700 font-black text-3xl">05</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{% trans "Residential & Villa Estates" %}</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        {% trans "Specialized brokerage and lifestyle curation for luxury private villas, gated community townhouses, and high-end residential apartment complexes across the Emirates." %}
+                    </p>
+                    <ul class="space-y-3 mb-8 border-t border-zinc-800/80 pt-6">
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Luxury Villas & Mansions" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Gated Community Townhouses" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Residential Apartments" %}</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="inline-flex items-center justify-center w-full bg-zinc-900 text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-colors border border-zinc-800">
+                    {% trans "Explore Residences" %}
+                </a>
+            </div>
+
+            <!-- SERVICE 06: BUILDINGS, WAREHOUSES & INDUSTRIAL -->
+            <div class="bg-[#121216] border border-zinc-800/80 p-8 md:p-10 flex flex-col justify-between hover:border-gold/50 transition-all duration-300 reveal group" style="transition-delay: 500ms;">
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-14 h-14 bg-gold/10 border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-colors duration-300">
+                            <!-- SVG Icon: Warehouse / Industrial Building -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <span class="text-zinc-700 font-black text-3xl">06</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{% trans "Buildings & Warehouses" %}</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        {% trans "Industrial and commercial asset advisory covering entire commercial buildings, logistics warehouses, freezone facilities, and multi-story corporate properties." %}
+                    </p>
+                    <ul class="space-y-3 mb-8 border-t border-zinc-800/80 pt-6">
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Commercial Buildings & Towers" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Industrial & Storage Warehouses" %}</li>
+                        <li class="flex items-center gap-3 text-xs font-semibold text-zinc-300 uppercase tracking-wider"><span class="text-gold">▪</span> {% trans "Retail & Freezone Plots" %}</li>
+                    </ul>
+                </div>
+                <a href="{% url 'contact' %}" class="inline-flex items-center justify-center w-full bg-zinc-900 text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-colors border border-zinc-800">
+                    {% trans "Explore Commercial Assets" %}
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     BOTTOM GALLERY SECTION (2 IMAGES)
+=========================================== -->
+<section class="py-24 bg-[#050505] border-t border-zinc-900">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+            <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">{% trans "The Edrak Standard" %}</span>
+            <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">{% trans "Shaping Landscapes Across the UAE" %}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Image 1 -->
+            <div class="relative group overflow-hidden border border-zinc-800 reveal">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Luxury Real Estate" class="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-8">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-[0.3em] mb-2">{% trans "Exclusive Portfolio" %}</span>
+                    <h3 class="text-xl font-bold text-white">{% trans "Architectural Mastery in Prime Locations" %}</h3>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="relative group overflow-hidden border border-zinc-800 reveal" style="transition-delay: 200ms;">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Modern Interiors" class="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-8">
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-[0.3em] mb-2">{% trans "Client Success" %}</span>
+                    <h3 class="text-xl font-bold text-white">{% trans "Unmatched Yields & Asset Protection" %}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     JAVASCRIPT LOGIC
+=========================================== -->
+<script>
+    function reveal() {
+        document.querySelectorAll(".reveal").forEach(r => {
+            if(r.getBoundingClientRect().top < window.innerHeight - 100) r.classList.add("active");
+        });
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+</script>
+{% endblock %}

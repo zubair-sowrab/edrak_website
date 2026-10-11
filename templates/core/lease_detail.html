@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static i18n humanize %}
+
+{% block content %}
+<section class="pt-32 pb-20 bg-zinc-50 border-b border-zinc-200">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <a href="{% url 'leases' %}" class="text-[10px] font-bold uppercase tracking-widest text-gold hover:text-black transition-colors mb-6 inline-block">⟵ {% trans "Back to Leases" %}</a>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <div>
+                <span class="text-white bg-black px-3 py-1 text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">{{ lease.get_property_type_display }}</span>
+                <h1 class="text-4xl md:text-6xl font-black text-zinc-900 tracking-tight mb-4">{{ lease.title }}</h1>
+                <p class="text-zinc-500 font-bold uppercase tracking-widest text-xs flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                    {{ lease.location }} {% if lease.project %} | {{ lease.project.title }}{% endif %}
+                </p>
+            </div>
+            <div class="text-left md:text-right">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-1">{% trans "Annual Rent" %}</p>
+                <p class="text-4xl font-black text-gold">{{ lease.rent_price|intcomma }} <span class="text-sm text-zinc-900 uppercase">AED</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CSS Snap Gallery -->
+<section class="py-12 bg-white">
+    <div class="w-full pl-6 md:pl-[max(1.5rem,calc((100vw-90rem)/2+1.5rem))]">
+        <div class="flex gap-4 overflow-x-auto no-scrollbar pb-8 snap-x snap-mandatory">
+            {% if lease.image %}
+            <div class="min-w-[85vw] md:min-w-[700px] h-[500px] snap-center bg-zinc-100 border border-zinc-200">
+                <img src="{{ lease.image.url }}" class="w-full h-full object-cover">
+            </div>
+            {% endif %}
+            {% for gal in lease.gallery.all %}
+            <div class="min-w-[85vw] md:min-w-[700px] h-[500px] snap-center bg-zinc-100 border border-zinc-200">
+                <img src="{{ gal.image.url }}" class="w-full h-full object-cover">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white border-t border-zinc-200">
+    <div class="max-w-[90rem] mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div class="lg:col-span-2">
+
+            <div class="grid grid-cols-3 md:grid-cols-4 gap-4 mb-12 border-y border-zinc-100 py-8">
+                <div class="text-center border-r border-zinc-100">
+                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest mb-2">{% trans "Bedrooms" %}</p>
+                    <p class="text-2xl font-black text-zinc-900">{{ lease.bedrooms }}</p>
+                </div>
+                <div class="text-center border-r border-zinc-100">
+                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest mb-2">{% trans "Bathrooms" %}</p>
+                    <p class="text-2xl font-black text-zinc-900">{{ lease.bathrooms }}</p>
+                </div>
+                <div class="text-center md:border-r border-zinc-100">
+                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest mb-2">{% trans "Size" %}</p>
+                    <p class="text-2xl font-black text-zinc-900">{{ lease.size_sqft }} <span class="text-xs">Sq.Ft</span></p>
+                </div>
+                <div class="text-center hidden md:block">
+                    <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest mb-2">{% trans "Parking" %}</p>
+                    <p class="text-2xl font-black text-zinc-900">{% if lease.parking_available %}Yes{% else %}No{% endif %}</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-black uppercase tracking-widest text-zinc-900 mb-6">{% trans "Description" %}</h3>
+            <p class="text-zinc-600 leading-relaxed font-medium mb-12 whitespace-pre-line">{{ lease.description }}</p>
+
+            <h3 class="text-2xl font-black uppercase tracking-widest text-zinc-900 mb-6">{% trans "Property Features" %}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {% for f in lease.features.all %}
+                <div class="flex items-center gap-3 border border-zinc-200 p-4">
+                    <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span class="text-sm font-bold text-zinc-700 uppercase tracking-widest">{{ f.feature }}</span>
+                </div>
+                {% empty %}
+                <p class="text-zinc-400 text-sm font-bold uppercase tracking-widest">{% trans "Standard features included." %}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div>
+            <div class="bg-zinc-50 border border-zinc-200 p-8 shadow-sm mb-8">
+                <h3 class="text-xl font-black uppercase tracking-widest text-zinc-900 mb-6">{% trans "Contact Agent" %}</h3>
+                <a href="tel:+97167422844" class="block w-full bg-black text-white text-center py-4 text-xs font-bold uppercase tracking-widest hover:bg-gold transition-colors border border-black mb-3">{% trans "Call Now" %}</a>
+                <a href="https://wa.me/97167422783?text=I'm interested in leasing: {{ lease.title }}" target="_blank" class="block w-full bg-[#25D366] text-white text-center py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#1ebd5a] transition-colors border border-[#25D366]">{% trans "WhatsApp" %}</a>
+            </div>
+
+            {% if lease.map_embed_code %}
+            <div class="w-full h-64 border border-zinc-200 bg-zinc-100 overflow-hidden [&>iframe]:w-full [&>iframe]:h-full [&>iframe]:grayscale">
+                {{ lease.map_embed_code|safe }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
