@@ -35,18 +35,22 @@
         }
 
         #mobile-menu { clip-path: circle(0px at top right); transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        #mobile-menu.open { clip-path: circle(150% at top right); }
+       #mobile-menu.open { clip-path: circle(150% at top right); }
     </style>
+
+    <!-- Tab Bar Logo -->
+    <link rel="icon" type="image/png" href="{% static 'img/logo-edrak.png' %}">
 </head>
 <body class="bg-lightbg text-zinc-900 font-sans antialiased selection:bg-gold selection:text-white overflow-x-hidden">
 
     <div class="ambient-mesh"></div>
 
     <!-- Header -->
+   <!-- Header -->
     <header class="fixed w-full top-0 z-50 glass-header">
         <div class="max-w-[90rem] mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
             <a href="/" class="flex items-center gap-3">
-                <img src="{% static 'img/logo.png' %}" alt="Edrak Logo" class="h-8 md:h-10">
+                <img src="{% static 'img/logo-edrak.png' %}" alt="Edrak Logo" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
             </a>
 
            <!-- Desktop Nav -->
@@ -100,7 +104,7 @@
     <footer class="bg-zinc-50 pt-16 md:pt-20 pb-8 md:pb-10 border-t border-zinc-200 mt-12 md:mt-20">
         <div class="max-w-[90rem] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 md:mb-16">
             <div>
-                <img src="{% static 'img/logo.png' %}" class="h-12 md:h-16 mb-6 opacity-90">
+                <img src="{% static 'img/logo-edrak.png' %}" class="h-12 md:h-16 mb-6 opacity-90">
                 <p class="text-zinc-600 text-sm leading-relaxed">{% trans "Elevating the standard of living and investment in Ajman and across the UAE." %}</p>
             </div>
             <div>

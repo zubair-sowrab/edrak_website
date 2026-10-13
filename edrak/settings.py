@@ -131,9 +131,12 @@ DATABASES = {
         'NAME': os.path.join(DB_DIR, 'db.sqlite3'),
     }
 }
-
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# This exact block is required for root static folders to work locally
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # If on Render, save uploaded images to the safe /data disk.
 if IS_RENDER:
