@@ -80,6 +80,14 @@
         html[dir="rtl"] #home .bg-gradient-to-r {
             background-image: linear-gradient(to left, #050505, rgba(5,5,5,0.7), transparent) !important;
         }
+        /* Force phone inputs, tel links, and LTR badges to read left-to-right even in Arabic */
+        html[dir="rtl"] input[type="tel"],
+        html[dir="rtl"] .ltr-num {
+            direction: ltr !important;
+            unicode-bidi: isolate !important;
+            text-align: right !important;
+            display: inline-block;
+        }
     </style>
 
     <!-- Tab Bar Logo -->
@@ -243,6 +251,16 @@
             menu.classList.toggle('open');
             document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
         }
+        // Automatically lock any element containing a +971 phone number to LTR reading order
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('p, a, span, li').forEach(el => {
+                if (el.children.length === 0 && /\+\d[\d\s\-]{6,}/.test(el.textContent)) {
+                    el.setAttribute('dir', 'ltr');
+                    el.style.unicodeBidi = 'isolate';
+                    el.classList.add('inline-block');
+                }
+            });
+        });
     </script>
 </body>
 </html>
