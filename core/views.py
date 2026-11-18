@@ -73,18 +73,82 @@ def about_view(request):
     })
 
 
+import re
+import time
+from django.core.cache import cache
+
+def get_client_ip(request):
+    """Extracts the real visitor IP behind Cloudflare and Nginx."""
+    cf_ip = request.META.get('HTTP_CF_CONNECTING_IP')
+    if cf_ip:
+        return cf_ip
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        return x_forwarded_for.split(',')[0].strip()
+    return request.META.get('REMOTE_ADDR', '0.0.0.0')
+
+
 def contact_view(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        phone = request.POST.get('phone')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
+        name = (request.POST.get('name') or '').strip()
+        phone = (request.POST.get('phone') or '').strip()
+        email = (request.POST.get('email') or '').strip()
+        message = (request.POST.get('message') or '').strip()
 
-        # Saves the lead into the database table
+        # Anti-spam fields
+        honeypot = request.POST.get('company_website', '')
+        form_load_time = request.POST.get('form_load_time', '')
+        human_token = request.POST.get('human_token', '')
+
+        fake_success_msg = "Thank you! Your inquiry has been received. Our advisory team will contact you shortly."
+
+        # 1. HONEYPOT TRAP: If the hidden field has any text, it is a bot
+        if honeypot:
+            messages.success(request, fake_success_msg)
+            return redirect('contact')
+
+        # 2. JAVASCRIPT & SPEED TRAP: Require valid JS token and >= 3 seconds fill time
+        try:
+            load_ts = int(form_load_time)
+            elapsed = time.time() - load_ts
+            expected_token = f"edrak_verified_{form_load_time}"
+            if human_token != expected_token or elapsed < 3 or elapsed > 86400:
+                messages.success(request, fake_success_msg)
+                return redirect('contact')
+        except (ValueError, TypeError):
+            messages.success(request, fake_success_msg)
+            return redirect('contact')
+
+        # 3. LINK & SPAM KEYWORD FILTER: Real property clients don't send URLs or SEO pitches
+        combined_text = f"{name} {message}".lower()
+        spam_patterns = [
+            r'http://', r'https://', r'www\.', r'\[url', r'<a\s+href',
+            r'crypto', r'bitcoin', r'casino', r'seo\s', r'backlink',
+            r'viagra', r'telegram', r'whatsapp\s+marketing', r'web\s+traffic'
+        ]
+        if any(re.search(pattern, combined_text) for pattern in spam_patterns):
+            messages.success(request, fake_success_msg)
+            return redirect('contact')
+
+        # 4. PHONE SANITY CHECK: Must contain at least 7 digits and no random words
+        digits_only = re.sub(r'\D', '', phone)
+        if len(digits_only) < 7 or len(digits_only) > 15 or re.search(r'[a-zA-Z]', phone):
+            messages.error(request, "Please enter a valid phone number.")
+            return redirect('contact')
+
+        # 5. IP RATE LIMITING: Max 2 inquiries per IP every 15 minutes (900 seconds)
+        client_ip = get_client_ip(request)
+        cache_key = f"edrak_contact_rate_{client_ip}"
+        submissions = cache.get(cache_key, 0)
+        if submissions >= 2:
+            messages.error(request, "You have recently submitted an inquiry. Our team will reach out shortly.")
+            return redirect('contact')
+        cache.set(cache_key, submissions + 1, timeout=900)
+
+        # Passed all 5 security checks -> Save genuine lead to database
         Inquiry.objects.create(name=name, phone=phone, email=email, message=message)
 
-        messages.success(request,
-                         "Thank you! Your inquiry has been received. Our advisory team will contact you shortly.")
+        messages.success(request, fake_success_msg)
         return redirect('contact')
 
     return render(request, 'core/contact.html')

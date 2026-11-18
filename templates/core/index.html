@@ -445,6 +445,26 @@
             <!-- Updated Form -->
             <form action="{% url 'contact' %}" method="POST" class="w-full lg:w-2/3 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10">
                 {% csrf_token %}
+
+
+
+                    <!-- Anti-Spam Honeypot & JS Verification (Invisible to Humans) -->
+                    <div class="opacity-0 absolute -z-50 pointer-events-none h-0 w-0 overflow-hidden" aria-hidden="true">
+                        <label for="company_website">Company Website</label>
+                        <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="form_load_time" class="js-form-time" value="">
+                    <input type="hidden" name="human_token" class="js-human-token" value="">
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const now = Math.floor(Date.now() / 1000).toString();
+                            document.querySelectorAll('.js-form-time').forEach(el => el.value = now);
+                            document.querySelectorAll('.js-human-token').forEach(el => el.value = "edrak_verified_" + now);
+                        });
+                    </script>
+
+
+
                 <div class="relative group">
                     <input type="text" id="name" name="name" class="input-field w-full bg-transparent border-b-2 border-zinc-300 py-3 text-zinc-900 focus:outline-none focus:border-gold transition-colors font-medium placeholder-transparent" placeholder="Name" required>
                     <label for="name" class="absolute left-0 top-3 text-zinc-500 transition-all pointer-events-none font-bold text-[10px] uppercase tracking-widest">{% trans "Full Name" %}</label>
