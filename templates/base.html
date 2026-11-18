@@ -77,8 +77,23 @@
             left: auto !important;
             right: 0 !important;
         }
-        html[dir="rtl"] #home .bg-gradient-to-r {
+       /* Only flip the background overlay div, never text gradients */
+        html[dir="rtl"] #home > div.bg-gradient-to-r {
             background-image: linear-gradient(to left, #050505, rgba(5,5,5,0.7), transparent) !important;
+        }
+
+        /* Ensure gold gradient text and Arabic headlines render cleanly with full dot clearance */
+        html[dir="rtl"] h1 {
+            line-height: 1.25 !important;
+        }
+        html[dir="rtl"] .bg-clip-text,
+        html[dir="rtl"] .gold-shimmer {
+            background-image: linear-gradient(90deg, #C59D3F 0%, #FACC15 50%, #C59D3F 100%) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            color: transparent !important;
+            display: inline-block;
+            padding-bottom: 0.1em;
         }
         /* Force phone inputs, tel links, and LTR badges to read left-to-right even in Arabic */
         html[dir="rtl"] input[type="tel"],
