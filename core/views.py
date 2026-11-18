@@ -207,3 +207,23 @@ def item_delete_view(request, item_type, pk):
     if request.method == 'POST':
         instance.delete()
     return redirect('custom_admin')
+
+
+from .models import Project, Lease
+
+
+def why_edrak(request):
+    projects = Project.objects.all()
+    leases = Lease.objects.select_related('project').all()[:6]
+
+    # Extract unique statuses from backend projects for dynamic filter buttons
+    project_statuses = Project.objects.values_list('status', flat=True).distinct()
+
+    context = {
+        'projects': projects,
+        'leases': leases,
+        'project_statuses': project_statuses,
+        'total_projects': projects.count(),
+        'total_leases': Lease.objects.count(),
+    }
+    return render(request, 'core/why_edrak.html', context)

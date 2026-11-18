@@ -16,6 +16,7 @@ urlpatterns = [
     path('admin-edrak/<str:item_type>/delete/<int:pk>/', views.item_delete_view, name='item_delete'),
 path('projects/<int:pk>/', views.project_detail_view, name='project_detail'),
     path('leases/<int:pk>/', views.lease_detail_view, name='lease_detail'),
-path('admin-edrak/inquiry/action/', views.inquiry_action_view, name='inquiry_action'), # <-- Add this line
+path('admin-edrak/inquiry/action/', views.inquiry_action_view, name='inquiry_action'),
+path('why-edrak/', views.why_edrak, name='why_edrak'),
 ]
 

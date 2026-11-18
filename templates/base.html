@@ -1,6 +1,7 @@
 {% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="{{ request.LANGUAGE_CODE }}" dir="{% if request.LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}" class="scroll-smooth">
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,7 +18,7 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
 
     <style>
         .ambient-mesh {
@@ -35,7 +36,50 @@
         }
 
         #mobile-menu { clip-path: circle(0px at top right); transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-       #mobile-menu.open { clip-path: circle(150% at top right); }
+        #mobile-menu.open { clip-path: circle(150% at top right); }
+
+        /* ==========================================
+           GLOBAL RTL & ARABIC TYPOGRAPHY ENGINE
+        =========================================== */
+        html[dir="rtl"] body {
+            font-family: 'Cairo', sans-serif !important;
+        }
+        html[dir="rtl"] * {
+            letter-spacing: 0 !important;
+        }
+        html[dir="rtl"] .text-left {
+            text-align: right !important;
+        }
+        html[dir="rtl"] .text-right {
+            text-align: left !important;
+        }
+        html[dir="rtl"] .border-l-2 {
+            border-left-width: 0 !important;
+            border-right-width: 2px !important;
+        }
+        html[dir="rtl"] .border-l-4 {
+            border-left-width: 0 !important;
+            border-right-width: 4px !important;
+        }
+        html[dir="rtl"] .pl-5 {
+            padding-left: 0 !important;
+            padding-right: 1.25rem !important;
+        }
+        html[dir="rtl"] .pl-6 {
+            padding-left: 0 !important;
+            padding-right: 1.5rem !important;
+        }
+        html[dir="rtl"] .pr-6 {
+            padding-right: 0 !important;
+            padding-left: 1.5rem !important;
+        }
+        html[dir="rtl"] .input-field + label.left-0 {
+            left: auto !important;
+            right: 0 !important;
+        }
+        html[dir="rtl"] #home .bg-gradient-to-r {
+            background-image: linear-gradient(to left, #050505, rgba(5,5,5,0.7), transparent) !important;
+        }
     </style>
 
     <!-- Tab Bar Logo -->
@@ -46,50 +90,104 @@
     <div class="ambient-mesh"></div>
 
     <!-- Header -->
-   <!-- Header -->
     <header class="fixed w-full top-0 z-50 glass-header">
         <div class="max-w-[90rem] mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-3">
+            <a href="{% url 'home' %}" class="flex items-center gap-3">
                 <img src="{% static 'img/logo-edrak.png' %}" alt="Edrak Logo" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
             </a>
 
-           <!-- Desktop Nav -->
-<nav class="hidden xl:flex gap-8 text-xs font-bold uppercase tracking-widest text-zinc-600">
-    <a href="{% url 'home' %}" class="hover:text-gold transition-colors">{% trans "Home" %}</a>
-    <a href="{% url 'services' %}" class="hover:text-gold transition-colors">{% trans "Services" %}</a>
-    <a href="{% url 'projects' %}" class="hover:text-gold transition-colors">{% trans "Projects" %}</a>
-    <a href="{% url 'leases' %}" class="hover:text-gold transition-colors">{% trans "Leases" %}</a>
-    <a href="{% url 'about' %}" class="hover:text-gold transition-colors">{% trans "About Us" %}</a>
-</nav>
+            <!-- Desktop Nav -->
+            <nav class="hidden xl:flex gap-8 text-xs font-bold uppercase tracking-widest text-zinc-600 items-center">
+                <a href="{% url 'home' %}" class="hover:text-gold transition-colors">{% trans "Home" %}</a>
 
-<div class="hidden xl:flex gap-6 items-center">
-    <a href="{% url 'contact' %}" class="bg-black text-white px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-gold transition-colors shadow-sm rounded-none border border-black hover:border-gold">
-        {% trans "Contact Us" %}
-    </a>
-</div>
+                <a href="{% url 'why_edrak' %}" class="hover:text-gold transition-colors">{% trans "Why Edrak" %}</a>
 
-            <!-- Hamburger Button -->
-            <button onclick="toggleMobileMenu()" class="xl:hidden z-[60] relative p-2 text-zinc-900 hover:text-gold transition-colors" aria-label="Toggle Menu">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+                <a href="{% url 'services' %}" class="hover:text-gold transition-colors">{% trans "Services" %}</a>
+                <a href="{% url 'projects' %}" class="hover:text-gold transition-colors">{% trans "Projects" %}</a>
+                <a href="{% url 'leases' %}" class="hover:text-gold transition-colors">{% trans "Leases" %}</a>
+                <a href="{% url 'about' %}" class="hover:text-gold transition-colors">{% trans "About Us" %}</a>
+            </nav>
+
+            <!-- Desktop Actions: Language Switcher + Contact Us -->
+            <div class="hidden xl:flex gap-4 items-center">
+                <form action="{% url 'set_language' %}" method="post" class="inline-block">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                        <input name="language" type="hidden" value="en">
+                        <button type="submit" class="border border-zinc-300 bg-white text-zinc-900 px-4 py-3 text-xs font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition-colors flex items-center gap-2">
+                            <span>🌐</span> <span>English</span>
+                        </button>
+                    {% else %}
+                        <input name="language" type="hidden" value="ar">
+                        <button type="submit" style="font-family: 'Cairo', sans-serif;" class="border border-gold/50 bg-gold/10 text-zinc-900 px-4 py-2.5 text-sm font-bold hover:bg-gold hover:text-black transition-colors flex items-center gap-2">
+                            <span>🌐</span> <span>العربية</span>
+                        </button>
+                    {% endif %}
+                </form>
+
+                <a href="{% url 'contact' %}" class="bg-black text-white px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-gold transition-colors shadow-sm rounded-none border border-black hover:border-gold">
+                    {% trans "Contact Us" %}
+                </a>
+            </div>
+
+            <!-- Mobile Right Controls: Quick Language Button + Hamburger -->
+            <div class="xl:hidden flex items-center gap-2 z-[60] relative">
+                <form action="{% url 'set_language' %}" method="post" class="inline-block">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                    {% if LANGUAGE_CODE == 'ar' %}
+                        <input name="language" type="hidden" value="en">
+                        <button type="submit" class="border border-zinc-300 bg-white px-3 py-1.5 text-xs font-bold uppercase text-zinc-900 hover:border-gold">
+                            EN
+                        </button>
+                    {% else %}
+                        <input name="language" type="hidden" value="ar">
+                        <button type="submit" style="font-family: 'Cairo', sans-serif;" class="border border-gold bg-gold/10 px-3 py-1 text-xs font-bold text-zinc-900">
+                            العربية
+                        </button>
+                    {% endif %}
+                </form>
+
+                <button onclick="toggleMobileMenu()" class="p-2 text-zinc-900 hover:text-gold transition-colors" aria-label="Toggle Menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Mobile Menu -->
-   <!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-0 bg-white z-50 flex flex-col justify-center items-center gap-8 text-xl md:text-2xl font-bold tracking-widest uppercase">
-    <!-- Close Button -->
-    <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 p-2 text-zinc-900 hover:text-gold transition-colors" aria-label="Close Menu">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-    </button>
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 flex flex-col justify-center items-center gap-6 text-xl md:text-2xl font-bold tracking-widest uppercase">
+        <!-- Close Button -->
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 p-2 text-zinc-900 hover:text-gold transition-colors" aria-label="Close Menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
 
-    <a href="{% url 'home' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Home" %}</a>
-    <a href="{% url 'services' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Services" %}</a>
-    <a href="{% url 'projects' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Projects" %}</a>
-    <a href="{% url 'leases' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Leases" %}</a>
-    <a href="{% url 'about' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "About Us" %}</a>
-    <a href="{% url 'contact' %}" onclick="toggleMobileMenu()" class="bg-black text-white px-8 py-4 mt-4 text-sm rounded-none hover:bg-gold transition-colors w-3/4 text-center">{% trans "Contact Us" %}</a>
-</div>
+        <a href="{% url 'home' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Home" %}</a>
+        <a href="{% url 'why_edrak' %}" onclick="toggleMobileMenu()" class="text-gold hover:text-zinc-900 transition-colors">{% trans "Why Edrak" %}</a>
+        <a href="{% url 'services' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Services" %}</a>
+        <a href="{% url 'projects' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Projects" %}</a>
+        <a href="{% url 'leases' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "Leases" %}</a>
+        <a href="{% url 'about' %}" onclick="toggleMobileMenu()" class="text-zinc-900 hover:text-gold transition-colors">{% trans "About Us" %}</a>
+        <a href="{% url 'contact' %}" onclick="toggleMobileMenu()" class="bg-black text-white px-8 py-4 mt-2 text-sm rounded-none hover:bg-gold transition-colors w-3/4 text-center">{% trans "Contact Us" %}</a>
+
+        <!-- Mobile Menu Language Switcher -->
+        <form action="{% url 'set_language' %}" method="post" class="w-3/4">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+            {% if LANGUAGE_CODE == 'ar' %}
+                <input name="language" type="hidden" value="en">
+                <button type="submit" class="w-full border border-zinc-300 py-3 text-xs font-bold uppercase text-zinc-900 hover:border-gold">
+                    🌐 Switch to English
+                </button>
+            {% else %}
+                <input name="language" type="hidden" value="ar">
+                <button type="submit" style="font-family: 'Cairo', sans-serif;" class="w-full border border-gold bg-gold/10 py-3 text-base font-bold text-zinc-900 hover:bg-gold hover:text-black">
+                    🌐 التبديل إلى العربية
+                </button>
+            {% endif %}
+        </form>
+    </div>
 
     <!-- Main Content -->
     <main class="pt-20 md:pt-24">
@@ -97,8 +195,8 @@
     </main>
 
     <a href="https://wa.me/97167422783" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-[#25D366] text-white p-3 md:p-4 flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-[0_10px_30px_rgba(37,211,102,0.3)] rounded-none">
-    <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
+        <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
 
     <!-- Footer -->
     <footer class="bg-zinc-50 pt-16 md:pt-20 pb-8 md:pb-10 border-t border-zinc-200 mt-12 md:mt-20">
@@ -110,18 +208,19 @@
             <div>
                 <h4 class="text-gold font-bold uppercase tracking-widest text-xs mb-6">{% trans "Quick Links" %}</h4>
                 <ul class="space-y-3 text-sm text-zinc-600 font-semibold">
-                    <li><a href="/services/" class="hover:text-gold transition-colors">{% trans "Our Services" %}</a></li>
-                    <li><a href="/projects" class="hover:text-gold transition-colors">{% trans "Our Projects" %}</a></li>
-                    <li><a href="/leases" class="hover:text-gold transition-colors">{% trans "Available Leases" %}</a></li>
-                    <li><a href="/about" class="hover:text-gold transition-colors">{% trans "About Us" %}</a></li>
+                    <li><a href="{% url 'why_edrak' %}" class="hover:text-gold transition-colors">{% trans "Why Edrak" %}</a></li>
+                    <li><a href="{% url 'services' %}" class="hover:text-gold transition-colors">{% trans "Our Services" %}</a></li>
+                    <li><a href="{% url 'projects' %}" class="hover:text-gold transition-colors">{% trans "Our Projects" %}</a></li>
+                    <li><a href="{% url 'leases' %}" class="hover:text-gold transition-colors">{% trans "Available Leases" %}</a></li>
+                    <li><a href="{% url 'about' %}" class="hover:text-gold transition-colors">{% trans "About Us" %}</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-gold font-bold uppercase tracking-widest text-xs mb-6">{% trans "Contact" %}</h4>
                 <ul class="space-y-3 text-sm text-zinc-600 font-semibold">
                     <li>info@edrakone.com</li>
-                    <li>+971 6 742 2844</li>
-                    <li class="leading-relaxed">Rashidiya Building, M5<br>Rashidiya 2, Ajman UAE</li>
+                    <li dir="ltr" class="{% if LANGUAGE_CODE == 'ar' %}text-right{% endif %}">+971 6 742 2844</li>
+                    <li class="leading-relaxed">{% trans "Rashidiya Building, M5" %}<br>{% trans "Rashidiya 2, Ajman UAE" %}</li>
                 </ul>
             </div>
             <div>
@@ -134,7 +233,7 @@
             </div>
         </div>
         <div class="text-center text-[10px] md:text-xs text-zinc-400 font-bold uppercase tracking-widest pt-8 border-t border-zinc-200">
-            © 2026 Edrak Properties. {% trans "All Rights Reserved." %}
+            © 2026 {% trans "Edrak Properties." %} {% trans "All Rights Reserved." %}
         </div>
     </footer>
 

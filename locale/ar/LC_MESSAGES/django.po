@@ -1,0 +1,1086 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Edrak Properties\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Edrak Properties | Luxury Real Estate"
+msgstr "إدراك العقارية | عقارات فاخرة"
+
+msgid "Edrak Properties."
+msgstr "إدراك العقارية."
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "Why Edrak"
+msgstr "لماذا إدراك"
+
+msgid "Services"
+msgstr "خدماتنا"
+
+msgid "Projects"
+msgstr "المشاريع"
+
+msgid "Leases"
+msgstr "الإيجارات"
+
+msgid "About Us"
+msgstr "من نحن"
+
+msgid "Contact Us"
+msgstr "تواصل معنا"
+
+msgid "Elevating the standard of living and investment in Ajman and across the UAE."
+msgstr "نرتقي بمعايير السكن والاستثمار العقاري في عجمان وجميع أنحاء دولة الإمارات العربية المتحدة."
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid "Our Services"
+msgstr "خدماتنا"
+
+msgid "Our Projects"
+msgstr "مشاريعنا"
+
+msgid "Available Leases"
+msgstr "الوحدات المتاحة للإيجار"
+
+msgid "Contact"
+msgstr "معلومات التواصل"
+
+msgid "Connect"
+msgstr "تابعنا"
+
+msgid "All Rights Reserved."
+msgstr "جميع الحقوق محفوظة."
+
+msgid "Rashidiya Building, M5"
+msgstr "بناية الراشدية، طابق ميزانين M5"
+
+msgid "Rashidiya 2, Ajman UAE"
+msgstr "الراشدية 2، عجمان، الإمارات العربية المتحدة"
+
+msgid "Explore the interactive masterplan"
+msgstr "استكشف المخطط التفاعلي الشامل"
+
+msgid "Invest with"
+msgstr "استثمر بكل"
+
+msgid "Certainty."
+msgstr "ثقة ويقين."
+
+msgid "Acquire, manage, and scale high-yield property portfolios. A fully integrated platform for investors, landlords, and global capital."
+msgstr "امتلك، وأدر، ووسّع محافظك العقارية ذات العوائد المرتفعة. منصة متكاملة للمستثمرين والملاك ورؤوس الأموال العالمية."
+
+msgid "Explore Portfolio"
+msgstr "استكشف المحفظة العقارية"
+
+msgid "View Leases"
+msgstr "عرض الإيجارات"
+
+msgid "Years of Legacy"
+msgstr "عاماً من العراقة"
+
+msgid "Managed Asset Value"
+msgstr "قيمة الأصول المدارة"
+
+msgid "Premium Occupancy"
+msgstr "نسبة إشغال متميزة"
+
+msgid "Global Investors"
+msgstr "مستثمر عالمي"
+
+msgid "Our Heritage"
+msgstr "إرثنا العريق"
+
+msgid "Rooted in Traditions."
+msgstr "جذور راسخة في الأصالة."
+
+msgid "Built for the Future."
+msgstr "مصممة للمستقبل."
+
+msgid "Established over half a century ago as a pioneering force in real estate, we have been a cornerstone of the property market in Ajman. We built our reputation on unshakeable trust, unparalleled local market intelligence, and generational relationships."
+msgstr "تأسست شركتنا قبل أكثر من نصف قرن كقوة رائدة في القطاع العقاري، وشكلت حجر الزاوية في سوق العقارات في عجمان. بنينا سمعتنا على الثقة الراسخة، والخبرة العميقة بالسوق المحلي، والعلاقات الممتدة عبر الأجيال."
+
+msgid "Today, we continue that unbroken legacy as Edrak Properties. Expanding our vision across the U.A.E., we combine our historic roots with highly advanced, interactive property management and data-driven investment strategies."
+msgstr "واليوم، نواصل هذا الإرث المتصل تحت اسم إدراك العقارية. ومع توسع رؤيتنا في كافة أنحاء دولة الإمارات، نجمع بين جذورنا التاريخية العريقة وأحدث أنظمة إدارة العقارات التفاعلية واستراتيجيات الاستثمار المبنية على البيانات."
+
+msgid "Dedicated Support"
+msgstr "دعم متواصل"
+
+msgid "Income Tax in UAE"
+msgstr "ضريبة الدخل في الإمارات"
+
+msgid "Our Infrastructure"
+msgstr "بنيتنا المؤسسية"
+
+msgid "Comprehensive Solutions"
+msgstr "حلول عقارية شاملة"
+
+msgid "Acquisitions & Sales"
+msgstr "الاستحواذ والمبيعات"
+
+msgid "Acquire premium off-plan assets or sell secondary market properties with maximum valuation through our discreet networks."
+msgstr "استحوذ على أصول عقارية متميزة على الخارطة أو بع عقارات السوق الثانوي بأعلى تقييم من خلال شبكاتنا الخاصة."
+
+msgid "Explore Division"
+msgstr "استكشف القسم"
+
+msgid "Leasing & Renting"
+msgstr "التأجير وإدارة العقود"
+
+msgid "Frictionless tenant placement, digital contract generation, and high-quality unit matchmaking."
+msgstr "تسكين سلس للمستأجرين، وإصدار عقود رقمية، ومطابقة دقيقة للوحدات السكنية والتجارية."
+
+msgid "Property Management"
+msgstr "إدارة الممتلكات"
+
+msgid "Zero-headache operational care. We handle maintenance, rent collection, and tenant relations entirely in-house."
+msgstr "رعاية تشغيلية متكاملة دون أي عناء. نتولى الصيانة وتحصيل الإيجارات وشؤون المستأجرين بالكامل عبر فرقنا الداخلية."
+
+msgid "Yield Advisory"
+msgstr "استشارات العوائد الاستثمارية"
+
+msgid "Data-driven ROI optimization and portfolio scaling strategies across the U.A.E. real estate sectors."
+msgstr "تحسين العائد على الاستثمار استناداً إلى البيانات واستراتيجيات توسيع المحافظ العقارية في دولة الإمارات."
+
+msgid "Properties for Rent"
+msgstr "عقارات للإيجار"
+
+msgid "View All Leases"
+msgstr "عرض جميع الإيجارات"
+
+msgid "Our Portfolio"
+msgstr "محفظتنا العقارية"
+
+msgid "Featured Developments"
+msgstr "أبرز المشاريع العقارية"
+
+msgid "Ready to Move"
+msgstr "جاهز للسكن"
+
+msgid "Off-Plan"
+msgstr "على الخارطة"
+
+msgid "Commercial"
+msgstr "تجاري"
+
+msgid "Trusted by Investors"
+msgstr "محل ثقة المستثمرين"
+
+msgid "Across the U.A.E & Globally"
+msgstr "في دولة الإمارات وحول العالم"
+
+msgid "Let's Talk Real Estate"
+msgstr "لنتحدث عن استثمارك العقاري"
+
+msgid "Our advisory team is ready to assist you. We usually reply within minutes."
+msgstr "فريقنا الاستشاري مستعد لمساعدتك. نرد عادةً خلال دقائق."
+
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+msgid "Email Address"
+msgstr "البريد الإلكتروني"
+
+msgid "How can we assist you?"
+msgstr "كيف يمكننا مساعدتك؟"
+
+msgid "Submit Inquiry"
+msgstr "إرسال الاستفسار"
+
+msgid "Edrak Properties is a premier real estate development and property management firm headquartered in Ajman, United Arab Emirates. With a legacy spanning over 50 years—originally established as Yousuf Bin Nasser & Sons—we have solidified our reputation as the region's most trusted authority in property investment, commercial leasing, and high-yield real estate acquisitions. Our extensive portfolio includes luxury villas, premium off-plan developments, and commercial hubs strategically located across the UAE's most lucrative investment zones."
+msgstr "إدراك العقارية هي شركة رائدة في التطوير العقاري وإدارة الممتلكات يقع مقرها الرئيسي في عجمان، الإمارات العربية المتحدة. بفضل إرث يمتد لأكثر من 50 عاماً — تأسست في الأصل باسم يوسف بن ناصر وأولاده للعقارات — رسخنا مكانتنا كأكثر جهة موثوقة في المنطقة في الاستثمار العقاري والتأجير التجاري والاستحواذات العقارية ذات العوائد المرتفعة."
+
+msgid "Whether you are a global investor seeking tax-free capital appreciation, a business owner requiring prime commercial frontage in the Industrial Freezone, or a family looking for a luxury residence in Al Yasmeen or Downtown Ajman, Edrak Properties delivers comprehensive, data-driven solutions. Our in-house property management division ensures frictionless tenant placement, rigorous maintenance protocols, and maximized ROI, setting the gold standard for real estate infrastructure in the Emirates."
+msgstr "سواء كنت مستثمراً عالمياً تبحث عن نمو رأسمالي معفى من الضرائب، أو صاحب عمل يحتاج إلى واجهة تجارية متميزة في المنطقة الحرة الصناعية، أو عائلة تبحث عن مسكن فاخر في الياسمين أو وسط مدينة عجمان، تقدم إدراك العقارية حلولاً شاملة ومبنية على البيانات تضمن أعلى عائد استثماري."
+
+msgid "Our Divisions"
+msgstr "أقسامنا المتخصصة"
+
+msgid "Comprehensive"
+msgstr "حلول عقارية"
+
+msgid "Solutions."
+msgstr "متكاملة."
+
+msgid "From off-plan acquisitions to elite property management, Edrak provides end-to-end infrastructure for the modern real estate investor across all asset classes."
+msgstr "من الاستحواذ على المشاريع على الخارطة إلى الإدارة الاحترافية للممتلكات، توفر إدراك بنية تحتية متكاملة للمستثمر العقاري العصري عبر كافة فئات الأصول."
+
+msgid "Tailored Expertise"
+msgstr "خبرات مصممة خصيصاً"
+
+msgid "Excellence Across Every Pillar & Asset Class"
+msgstr "التميز عبر كل ركيزة وفئة أصول عقارية"
+
+msgid "Leverage localized data in the Ajman and wider U.A.E. market to price, list, and sell with precision. Access exclusive off-plan developments and high-yield secondary market assets."
+msgstr "استفد من البيانات الدقيقة في سوق عجمان والإمارات لتسعير وإدراج وبيع العقارات بدقة عالية، والوصول إلى مشاريع حصرية على الخارطة وأصول عالية العائد."
+
+msgid "Off-Plan Investments"
+msgstr "استثمارات المشاريع على الخارطة"
+
+msgid "Secondary Market Sales"
+msgstr "مبيعات السوق الثانوي"
+
+msgid "Accurate Portfolio Valuation"
+msgstr "تقييم دقيق للمحافظ العقارية"
+
+msgid "Consult an Agent"
+msgstr "استشر مستشاراً عقارياً"
+
+msgid "Eliminating the friction of property leasing. Matching premium tenants with luxury residential and commercial assets with rigorous background screening and digital contracts."
+msgstr "القضاء على صعوبات التأجير العقاري من خلال ربط المستأجرين المتميزين بالأصول السكنية والتجارية الفاخرة مع فحص دقيق وإدارة عقود رقمية."
+
+msgid "Residential Matchmaking"
+msgstr "تسكين الوحدات السكنية"
+
+msgid "Commercial Leasing"
+msgstr "التأجير التجاري"
+
+msgid "Digital Contract Management"
+msgstr "إدارة العقود الرقمية"
+
+msgid "View Available Leases"
+msgstr "عرض الوحدات المتاحة للإيجار"
+
+msgid "A-Z property management ensuring absentee landlords and international investors generate passive income with zero headache, from maintenance to timely rent collection."
+msgstr "إدارة شاملة للممتلكات من الألف إلى الياء تضمن للملاك والمستثمرين الدوليين تحقيق دخل مستدام دون أي عناء، من الصيانة الدورية إلى تحصيل الإيجارات في موعدها."
+
+msgid "Automated Rent Collection"
+msgstr "تحصيل الإيجارات المؤتمت"
+
+msgid "24/7 Facility Maintenance"
+msgstr "صيانة المرافق على مدار الساعة"
+
+msgid "Tenant Dispute Resolution"
+msgstr "تسوية منازعات المستأجرين"
+
+msgid "Assign Your Property"
+msgstr "أوكِل إدارة عقارك إلينا"
+
+msgid "Data-driven ROI optimization and portfolio scaling strategies. Intelligence needed to maximize capital appreciation across residential and commercial holdings."
+msgstr "تحسين العائد على الاستثمار وتوسيع المحافظ العقارية استناداً إلى البيانات، وتوفير الرؤى اللازمة لتعظيم النمو الرأسمالي للأصول السكنية والتجارية."
+
+msgid "Market Trend Analysis"
+msgstr "تحليل اتجاهات السوق"
+
+msgid "Portfolio Scaling Strategy"
+msgstr "استراتيجية توسيع المحفظة"
+
+msgid "ROI Optimization"
+msgstr "تعظيم العائد الاستثماري"
+
+msgid "Book a Strategy Call"
+msgstr "احجز استشارة استراتيجية"
+
+msgid "Residential & Villa Estates"
+msgstr "الفلل والمجمعات السكنية"
+
+msgid "Specialized brokerage and lifestyle curation for luxury private villas, gated community townhouses, and high-end residential apartment complexes across the Emirates."
+msgstr "وساطة عقارية متخصصة للفلل الخاصة الفاخرة، ومنازل التاون هاوس في المجمعات المسورة، والمجمعات السكنية الراقية في جميع أنحاء الإمارات."
+
+msgid "Luxury Villas & Mansions"
+msgstr "الفلل والقصور الفاخرة"
+
+msgid "Gated Community Townhouses"
+msgstr "تاون هاوس المجمعات المسورة"
+
+msgid "Residential Apartments"
+msgstr "الشقق السكنية"
+
+msgid "Explore Residences"
+msgstr "استكشف الوحدات السكنية"
+
+msgid "Buildings & Warehouses"
+msgstr "المباني والمستودعات الصناعية"
+
+msgid "Industrial and commercial asset advisory covering entire commercial buildings, logistics warehouses, freezone facilities, and multi-story corporate properties."
+msgstr "استشارات الأصول الصناعية والتجارية التي تغطي المباني التجارية الكاملة والمستودعات اللوجستية ومرافق المناطق الحرة والعقارات متعددة الطوابق."
+
+msgid "Commercial Buildings & Towers"
+msgstr "المباني والأبراج التجارية"
+
+msgid "Industrial & Storage Warehouses"
+msgstr "المستودعات الصناعية والتخزينية"
+
+msgid "Retail & Freezone Plots"
+msgstr "محلات التجزئة وأراضي المناطق الحرة"
+
+msgid "Explore Commercial Assets"
+msgstr "استكشف الأصول التجارية"
+
+msgid "The Edrak Standard"
+msgstr "معيار إدراك"
+
+msgid "Shaping Landscapes Across the UAE"
+msgstr "نصوغ المشهد العمراني في دولة الإمارات"
+
+msgid "Exclusive Portfolio"
+msgstr "محفظة حصرية"
+
+msgid "Architectural Mastery in Prime Locations"
+msgstr "إتقان معماري في مواقع استراتيجية"
+
+msgid "Client Success"
+msgstr "نجاح العملاء"
+
+msgid "Unmatched Yields & Asset Protection"
+msgstr "عوائد استثنائية وحماية متكاملة للأصول"
+
+msgid "A Legacy of Trust."
+msgstr "إرث من الثقة."
+
+msgid "Built for Generations."
+msgstr "بُني للأجيال."
+
+msgid "Over 50 Years of Excellence"
+msgstr "أكثر من 50 عاماً من التميز"
+
+msgid "Edrak Properties stands as a paragon of real estate excellence in Ajman and the wider United Arab Emirates, commanding a portfolio built on half a century of market mastery."
+msgstr "تقف إدراك العقارية كنموذج للتميز العقاري في عجمان ودولة الإمارات العربية المتحدة، حيث تدير محفظة عقارية راسخة بُنيت على مدى نصف قرن من الريادة في السوق."
+
+msgid "Previously known as the highly esteemed Yousuf Bin Nasser & Sons Real Estate, we established the bedrock of the property market in Ajman over fifty years ago. Our foundational years were defined by pioneering developments, unshakeable trust, and the cultivation of generational relationships. To meet the rigorous demands of a globalized economy, we have evolved and rebranded as Edrak Properties—a name that reflects our forward-thinking ethos while remaining deeply anchored in the traditional values that brought us decades of success."
+msgstr "عُرفت شركتنا سابقاً باسم يوسف بن ناصر وأولاده للعقارات، حيث أرسينا دعائم السوق العقاري في عجمان قبل أكثر من خمسين عاماً. تميزت سنوات التأسيس بالمشاريع الرائدة والثقة الراسخة وبناء العلاقات الممتدة عبر الأجيال. ولمواكبة متطلبات الاقتصاد العالمي الحديث، تطورنا إلى هوية إدراك العقارية — وهو اسم يعكس رؤيتنا المستقبلية مع التمسك العميق بالقيم الأصيلة التي صنعت نجاحنا لعقود."
+
+msgid "Today, we have successfully bridged our legacy of market dominance with cutting-edge property management, data-driven yield optimization, and modern digital infrastructure. Our dedicated team of investment advisors, legal experts, and facility managers work relentlessly to elevate the standard of living and investment across the Emirates."
+msgstr "واليوم، نجحنا في المزج بين إرثنا العريق وأحدث تقنيات إدارة الممتلكات، وتحسين العوائد بالبيانات، والبنية التحتية الرقمية الحديثة. يعمل فريقنا المتخصص من مستشاري الاستثمار والخبراء القانونيين ومديري المرافق بلا كلل للارتقاء بمعايير المعيشة والاستثمار في كافة أنحاء الإمارات."
+
+msgid "Whether you are a local family seeking a forever home, a corporate entity acquiring commercial hubs in the Industrial Freezone, or an international investor pursuing high-yield capital appreciation in the tax-free haven of the U.A.E., Edrak Properties provides the end-to-end operational framework required to secure and scale your wealth."
+msgstr "سواء كنت عائلة تبحث عن منزل العمر، أو مؤسسة تستحوذ على مقرات تجارية في المنطقة الحرة الصناعية، أو مستثمراً دولياً يسعى لتنمية رأس ماله بعوائد مرتفعة في بيئة الإمارات المعفاة من الضرائب، توفر لك إدراك العقارية المنظومة التشغيلية المتكاملة لحماية وتنمية ثروتك."
+
+msgid "Our Mission"
+msgstr "رسالتنا"
+
+msgid "To engineer unparalleled real estate infrastructure that empowers investors, nurtures communities, and redefines the standard of luxury living across the UAE. We meticulously manage, develop, and acquire properties that yield sustainable, long-term capital appreciation, ensuring every asset under our stewardship operates at absolute peak efficiency."
+msgstr "هندسة بنية تحتية عقارية لا مثيل لها تمكّن المستثمرين، وتثري المجتمعات، وتعيد تعريف معايير الحياة الفاخرة في الإمارات. نحن ندير ونطور ونستحوذ بعناية فائقة على العقارات التي تحقق نمواً رأسمالياً مستداماً طويل الأمد، مع ضمان تشغيل كل أصل تحت إشرافنا بأقصى درجات الكفاءة."
+
+msgid "Our Vision"
+msgstr "رؤيتنا"
+
+msgid "To be the premier architectural and property management institution in the Middle East. We envision a landscape where traditional values of trust and transparency seamlessly integrate with cutting-edge prop-tech and data-driven yield advisory, making Edrak the ultimate conduit for global capital entering the UAE real estate sector."
+msgstr "أن نكون المؤسسة الرائدة في التطوير وإدارة العقارات في الشرق الأوسط. نتطلع إلى مستقبل تتكامل فيه قيم الثقة والشفافية الأصيلة مع أحدث التقنيات العقارية واستشارات العوائد المبنية على البيانات، لتكون إدراك البوابة الأولى لرؤوس الأموال العالمية في قطاع العقارات الإماراتي."
+
+msgid "A Dedicated Infrastructure"
+msgstr "بنية مؤسسية متكاملة"
+
+msgid "Operational Excellence at Every Level"
+msgstr "التميز التشغيلي على كافة المستويات"
+
+msgid "Market Intelligence"
+msgstr "ذكاء السوق العقاري"
+
+msgid "Leveraging 50 years of proprietary data to identify high-yield investment zones and execute flawless acquisitions."
+msgstr "الاستفادة من 50 عاماً من البيانات العقارية لتحديد مناطق الاستثمار ذات العوائد المرتفعة وتنفيذ عمليات استحواذ ناجحة."
+
+msgid "Dedicated Team"
+msgstr "فريق متخصص"
+
+msgid "An elite, in-house team of sales directors, legal consultants, and facility managers providing 24/7 operational care."
+msgstr "نخبة من مديري المبيعات والمستشارين القانونيين ومديري المرافق الداخليين لتقديم رعاية تشغيلية على مدار الساعة."
+
+msgid "Asset Maximization"
+msgstr "تعظيم قيمة الأصول"
+
+msgid "Strategic rent pricing models, minimal vacancy rates, and stringent tenant matchmaking to ensure premium ROI."
+msgstr "نماذج تسعير إيجارية استراتيجية، وأدنى معدلات شغور، واختيار دقيق للمستأجرين لضمان أعلى عائد على الاستثمار."
+
+msgid "Global Capital"
+msgstr "رأس المال العالمي"
+
+msgid "Facilitating seamless property acquisitions for international investors looking to scale portfolios in the tax-free U.A.E."
+msgstr "تسهيل عمليات الاستحواذ العقاري السلسة للمستثمرين الدوليين الراغبين في توسيع محافظهم في دولة الإمارات المعفاة من الضرائب."
+
+msgid "A Glimpse of Our Portfolio"
+msgstr "لمحة عن محفظتنا العقارية"
+
+msgid "Captured Across Our Developments"
+msgstr "لقطات من مشاريعنا ومبانينا"
+
+msgid "View All Projects"
+msgstr "عرض جميع المشاريع"
+
+msgid "View Project"
+msgstr "عرض المشروع"
+
+msgid "Our Headquarters"
+msgstr "مقرنا الرئيسي"
+
+msgid "Ajman, United Arab Emirates"
+msgstr "عجمان، الإمارات العربية المتحدة"
+
+msgid "Our Developments"
+msgstr "مشاريعنا العقارية"
+
+msgid "Master Projects"
+msgstr "المشاريع الرئيسية"
+
+msgid "Explore our portfolio of elite developments. Click on any project to view exclusively available leases within that building."
+msgstr "استكشف محفظتنا من المشاريع العقارية النخبة. اضغط على أي مشروع لعرض الوحدات المتاحة للإيجار داخل المبنى."
+
+msgid "View Project Details"
+msgstr "عرض تفاصيل المشروع"
+
+msgid "No projects available currently."
+msgstr "لا توجد مشاريع متاحة حالياً."
+
+msgid "Back to Projects"
+msgstr "العودة إلى المشاريع"
+
+msgid "Description"
+msgstr "الوصف التفصيلي"
+
+msgid "Features & Amenities"
+msgstr "المميزات والمرافق"
+
+msgid "Total Units"
+msgstr "إجمالي الوحدات"
+
+msgid "Parking Available"
+msgstr "مواقف سيارات متوفرة"
+
+msgid "No Parking"
+msgstr "لا تتوفر مواقف"
+
+msgid "Inquire Now"
+msgstr "استفسر الآن"
+
+msgid "Contact Advisor"
+msgstr "تواصل مع المستشار"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "All Locations"
+msgstr "جميع المواقع"
+
+msgid "Project/Building"
+msgstr "المشروع / المبنى"
+
+msgid "All Projects"
+msgstr "جميع المشاريع"
+
+msgid "Min Beds"
+msgstr "الحد الأدنى للغرف"
+
+msgid "Any"
+msgstr "الكل"
+
+msgid "Max Rent (AED)"
+msgstr "الحد الأقصى للإيجار (درهم)"
+
+msgid "Filter Results"
+msgstr "تصفية النتائج"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Call"
+msgstr "اتصال"
+
+msgid "WhatsApp"
+msgstr "واتساب"
+
+msgid "No properties match your exact criteria."
+msgstr "لا توجد عقارات تطابق معايير البحث الخاصة بك."
+
+msgid "Clear Filters"
+msgstr "مسح التصفية"
+
+msgid "Back to Leases"
+msgstr "العودة إلى الإيجارات"
+
+msgid "Annual Rent"
+msgstr "الإيجار السنوي"
+
+msgid "Bedrooms"
+msgstr "غرف النوم"
+
+msgid "Bathrooms"
+msgstr "الحمامات"
+
+msgid "Size"
+msgstr "المساحة"
+
+msgid "Parking"
+msgstr "مواقف السيارات"
+
+msgid "Property Features"
+msgstr "مميزات العقار"
+
+msgid "Standard features included."
+msgstr "المميزات القياسية متضمنة."
+
+msgid "Contact Agent"
+msgstr "تواصل مع الوكيل"
+
+msgid "Call Now"
+msgstr "اتصل الآن"
+
+msgid "Get in Touch"
+msgstr "تواصل معنا"
+
+msgid "Speak to an Advisor"
+msgstr "تحدث إلى مستشار عقاري"
+
+msgid "Head Office"
+msgstr "المكتب الرئيسي"
+
+msgid "Institutional Dossier"
+msgstr "الملف المؤسسي"
+
+msgid "The YBN Pedigree"
+msgstr "إرث يوسف بن ناصر"
+
+msgid "Track Record"
+msgstr "سجل الإنجازات"
+
+msgid "50-Year Timeline"
+msgstr "مسيرة 50 عاماً"
+
+msgid "Our Buildings"
+msgstr "مبانينا"
+
+msgid "Featured Units"
+msgstr "الوحدات المميزة"
+
+msgid "Yield Simulator"
+msgstr "حاسبة العوائد"
+
+msgid "Operations"
+msgstr "المنظومة التشغيلية"
+
+msgid "Client Trust"
+msgstr "ثقة العملاء"
+
+msgid "Partner With Us"
+msgstr "شاركنا النجاح"
+
+msgid "Formerly Yousuf Bin Nasser & Sons Real Estate • Est. Over 50 Years"
+msgstr "سابقاً يوسف بن ناصر وأولاده للعقارات • تأسست منذ أكثر من 50 عاماً"
+
+msgid "Half a Century of"
+msgstr "نصف قرن من"
+
+msgid "Unshakeable Trust."
+msgstr "الثقة الراسخة."
+
+msgid "In a market crowded with transient brokerages, Edrak Properties stands apart as a generational institution. Born from the half-century legacy of Yousuf Bin Nasser & Sons Real Estate, we do not merely transact property—we engineer, own, manage, and protect enduring real estate wealth across Ajman and the United Arab Emirates."
+msgstr "في سوق يزخر بشركات الوساطة المؤقتة، تنفرد إدراك العقارية كمؤسسة عريقة تمتد عبر الأجيال. انطلاقاً من إرث يوسف بن ناصر وأولاده للعقارات الممتد لنصف قرن، نحن لا نكتفي بصفقات البيع والشراء فحسب — بل نبني ونمتلك وندير ونحمي الثروات العقارية المستدامة في عجمان ودولة الإمارات العربية المتحدة."
+
+msgid "Inspect Our Building Portfolio"
+msgstr "تصفح محفظة مبانينا"
+
+msgid "Explore Our 50-Year Pedigree"
+msgstr "استكشف إرثنا الممتد لـ 50 عاماً"
+
+msgid "Foundation & Heritage"
+msgstr "التأسيس والإرث"
+
+msgid "Yousuf Bin Nasser & Sons Real Estate"
+msgstr "يوسف بن ناصر وأولاده للعقارات"
+
+msgid "Executive Leadership"
+msgstr "القيادة التنفيذية"
+
+msgid "Mr. Mohammed Yousef Nasser Al Nuaimi"
+msgstr "السيد محمد يوسف ناصر النعيمي"
+
+msgid "Corporate Headquarters"
+msgstr "المقر الرئيسي للشركة"
+
+msgid "Rashidiya Building, M5, Ajman, UAE"
+msgstr "بناية الراشدية، M5، عجمان، الإمارات"
+
+msgid "Operational Standard"
+msgstr "المعيار التشغيلي"
+
+msgid "Principal Asset Owner & 360° Operator"
+msgstr "مالك رئيسي للأصول ومشغل متكامل 360°"
+
+msgid "Institutional Continuity"
+msgstr "الاستمرارية المؤسسية"
+
+msgid "From Yousuf Bin Nasser & Sons to Edrak Properties: One Unbroken Promise."
+msgstr "من يوسف بن ناصر وأولاده إلى إدراك العقارية: عهد واحد لا ينقطع."
+
+msgid "Years in UAE"
+msgstr "عاماً في الإمارات"
+
+msgid "Built on decades of tangible brick-and-mortar ownership across Ajman, protecting multi-generational family capital and international institutional portfolios alike."
+msgstr "بُنيت على عقود من الملكية العقارية الفعلية في كافة أنحاء عجمان، لحماية رؤوس الأموال العائلية الممتدة عبر الأجيال والمحافظ المؤسسية الدولية على حد سواء."
+
+msgid "The Pedigree & Bloodline"
+msgstr "الأصالة والجذور العريقة"
+
+msgid "Roots Cast in Stone."
+msgstr "جذور راسخة في الصخر."
+
+msgid "Vision Built for Tomorrow."
+msgstr "ورؤية مشيدة للمستقبل."
+
+msgid "To understand why discerning landlords, sovereign-tier investors, and thousands of families trust Edrak Properties, one must look at our foundation: Yousuf Bin Nasser & Sons Real Estate (YBN). For over fifty years, the Yousuf Bin Nasser name has been synonymous with reliability, ethical stewardship, and urban pioneering in Ajman and across the Emirates."
+msgstr "لفهم السبب الذي يجعل كبار الملاك والمستثمرين وآلاف العائلات يثقون في إدراك العقارية، يجب النظر إلى أساسنا المتين: شركة يوسف بن ناصر وأولاده للعقارات. على مدى أكثر من خمسين عاماً، ارتبط اسم يوسف بن ناصر بالمصداقية والأمانة والريادة العمرانية في عجمان ودولة الإمارات."
+
+msgid "Long before modern glass towers defined the skyline, Yousuf Bin Nasser & Sons Real Estate was acquiring strategic land, constructing enduring residential and commercial buildings, and establishing a reputation where a handshake carried the weight of an ironclad contract."
+msgstr "قبل وقت طويل من ظهور الأبراج الزجاجية الحديثة، كانت شركة يوسف بن ناصر وأولاده للعقارات تستحوذ على الأراضي الاستراتيجية، وتشيد المباني السكنية والتجارية الراسخة، وتبني سمعةً كانت فيها المصافحة تعادل قوة العقد الموثق."
+
+msgid "Under the visionary leadership of CEO Mr. Mohammed Yousef Nasser Al Nuaimi, the company evolved into Edrak Properties—meaning 'Perception, Deep Understanding, and Realization.' This evolution united half a century of physical asset ownership with modern data analytics, automated financial transparency, and institutional-grade facility management."
+msgstr "وتحت القيادة الرشيدة للرئيس التنفيذي السيد محمد يوسف ناصر النعيمي، تطورت الشركة إلى إدراك العقارية — وهو اسم يجسد الفهم العميق والإدراك المستقبلي. وحّد هذا التطور نصف قرن من ملكية الأصول العقارية مع التحليلات الحديثة للبيانات والشفافية المالية المؤتمتة وإدارة المرافق بمعايير مؤسسية عالمية."
+
+msgid "Our name changed to reflect our technological and analytical evolution, but our soul remains the exact legacy of Yousuf Bin Nasser & Sons. Every building we manage is maintained as if our own family name is etched onto its facade—because for over fifty years, it has been."
+msgstr "لقد تغير اسمنا ليعكس تطورنا التقني والتحليلي، لكن جوهرنا يظل هو ذاته إرث يوسف بن ناصر وأولاده. كل مبنى نديره تتم صيانته ورعايته وكأن اسم عائلتنا محفور على واجهته — لأنه على مدى أكثر من خمسين عاماً، كان كذلك بالفعل."
+
+msgid "Chief Executive Officer • Edrak Properties"
+msgstr "الرئيس التنفيذي • إدراك العقارية"
+
+msgid "Quantified Dependability"
+msgstr "موثوقية مثبتة بالأرقام"
+
+msgid "A Track Record Audited by Time"
+msgstr "سجل حافل يشهده الزمن"
+
+msgid "Real estate claims are easy to make; five decades of uninterrupted occupancy, asset appreciation, and on-time landlord disbursements are impossible to fabricate."
+msgstr "من السهل إطلاق الوعود العقارية؛ لكن خمسة عقود من الإشغال المتواصل ونمو قيمة الأصول وتحويل عوائد الملاك في مواعيدها هي حقائق لا يمكن تصنعها."
+
+msgid "Market Longevity"
+msgstr "العراقة في السوق"
+
+msgid "Years"
+msgstr "عاماً"
+
+msgid "Continuous real estate operations in Ajman and the UAE, weathering every global economic cycle with zero defaults."
+msgstr "عمليات عقارية متواصلة في عجمان والإمارات، صمدت أمام كافة الدورات الاقتصادية العالمية بسجل خالٍ من أي تعثر."
+
+msgid "Portfolio Valuation"
+msgstr "تقييم المحفظة العقارية"
+
+msgid "In active residential towers, commercial buildings, luxury villas, and industrial assets under direct Edrak stewardship."
+msgstr "في الأبراج السكنية النشطة والمباني التجارية والفلل الفاخرة والأصول الصناعية تحت الإدارة المباشرة لشركة إدراك."
+
+msgid "Asset Demand"
+msgstr "الطلب على الأصول"
+
+msgid "Sustained occupancy rate across our managed buildings, driven by proactive maintenance and tenant-first governance."
+msgstr "معدل إشغال مستدام عبر مبانينا المدارة، مدفوعاً بالصيانة الاستباقية والحوكمة التي تضع راحة المستأجر في المقام الأول."
+
+msgid "Community & Network"
+msgstr "المجتمع والشبكة الاستثمارية"
+
+msgid "Global investors, commercial enterprises, and residential families served across our buildings and advisory mandates."
+msgstr "من المستثمرين العالميين والشركات التجارية والعائلات السكنية الذين تشرفنا بخدمتهم عبر مبانينا واستشاراتنا."
+
+msgid "Engineering Response"
+msgstr "الاستجابة الهندسية"
+
+msgid "In-House SLA"
+msgstr "فريق صيانة داخلي"
+
+msgid "Dedicated technical maintenance crews, HVAC specialists, and audited rapid-response dispatchers protecting every unit."
+msgstr "فرق صيانة فنية متخصصة، وخبراء تكييف وتبريد، ومنسقو استجابة سريعة لحماية كل وحدة عقارية."
+
+msgid "Tenant Retention"
+msgstr "الاحتفاظ بالمستأجرين"
+
+msgid "Multi-year lease renewal rate, eliminating costly turnover vacancies and stabilizing net cash flow for property owners."
+msgstr "معدل تجديد عقود الإيجار لعدة سنوات، مما يقضي على فترات الشغور المكلفة ويضمن استقرار التدفق النقدي الصافي للملاك."
+
+msgid "Chronicle of Excellence"
+msgstr "سجل التميز عبر العقود"
+
+msgid "Five Decades of Shaping the Emirates"
+msgstr "خمسة عقود من البناء والتطوير في الإمارات"
+
+msgid "Select an era below to explore how Yousuf Bin Nasser & Sons Real Estate grew from a pioneering local land steward into Edrak Properties."
+msgstr "اختر حقبة زمنية أدناه لاستكشاف كيف نمت شركة يوسف بن ناصر وأولاده للعقارات من رائد محلي إلى مؤسسة إدراك العقارية."
+
+msgid "The Founding"
+msgstr "التأسيس"
+
+msgid "Urban Expansion"
+msgstr "التوسع العمراني"
+
+msgid "Tower Landmarks"
+msgstr "الأبراج المعالم"
+
+msgid "Edrak Rebrand"
+msgstr "الانطلاقة الجديدة"
+
+msgid "PropTech & Scale"
+msgstr "التقنية والتوسع"
+
+msgid "Genesis of a Dynasty"
+msgstr "بداية مسيرة عريقة"
+
+msgid "1970s • Genesis of a Dynasty"
+msgstr "السبعينيات • بداية مسيرة عريقة"
+
+msgid "1980s – 1990s • Building the Urban Core"
+msgstr "الثمانينيات والتسعينيات • بناء النواة العمرانية"
+
+msgid "2000s – 2010s • Institutional Asset Scale"
+msgstr "الألفية الجديدة • التوسع المؤسسي للأصول"
+
+msgid "2020 – 2024 • The Evolution into Edrak Properties"
+msgstr "2020 – 2024 • التطور إلى إدراك العقارية"
+
+msgid "2025 – Future • Next-Generation PropTech & Scale"
+msgstr "2025 – المستقبل • الجيل القادم من التقنية العقارية"
+
+msgid "Establishment of Yousuf Bin Nasser & Sons Real Estate"
+msgstr "تأسيس شركة يوسف بن ناصر وأولاده للعقارات"
+
+msgid "As the United Arab Emirates forged its historic union, Yousuf Bin Nasser & Sons Real Estate established its foundational footprint in Ajman. Focusing on essential housing, merchant commercial spaces, and long-term land banking, the firm earned an immediate reputation among founding families for absolute integrity and fair dealing."
+msgstr "مع قيام اتحاد دولة الإمارات العربية المتحدة، أرست شركة يوسف بن ناصر وأولاده للعقارات بصمتها التأسيسية في إمارة عجمان. ومن خلال التركيز على المساكن الأساسية والمساحات التجارية وتطوير الأراضي، اكتسبت الشركة سمعة فورية بين العائلات المؤسسة للنزاهة المطلقة والتعامل العادل."
+
+msgid "Shaping Ajman's Residential & Commercial Corridors"
+msgstr "تشكيل المحاور السكنية والتجارية في عجمان"
+
+msgid "Throughout the 1980s and 1990s, Yousuf Bin Nasser & Sons scaled rapidly alongside Ajman's demographic boom. The firm developed multi-family residential buildings and retail streetfronts across Al Rashidiya and central districts, becoming a trusted custodian for local landlords and regional merchant families."
+msgstr "خلال الثمانينيات والتسعينيات، توسعت شركة يوسف بن ناصر وأولاده بسرعة مواكبةً للنهضة العمرانية في عجمان. طورت الشركة مباني سكنية ومحلات تجارية في الراشدية والمناطق المركزية، لتصبح الأمين الموثوق للملاك المحليين وعائلات التجار في المنطقة."
+
+msgid "Flagship Multi-Story Towers, Villas & Industrial Hubs"
+msgstr "الأبراج متعددة الطوابق والفلل والمراكز الصناعية"
+
+msgid "Entering the new millennium, the portfolio expanded into landmark multi-story buildings and commercial anchors across Ajman, alongside private luxury villas and strategic estates."
+msgstr "مع دخول الألفية الجديدة، توسعت المحفظة لتشمل مباني بارزة متعددة الطوابق ومراكز تجارية في أنحاء عجمان، إلى جانب الفلل الفاخرة الخاصة والعقارات الاستراتيجية."
+
+msgid "Modernizing a 50-Year Legacy Under Mr. Mohammed Al Nuaimi"
+msgstr "تحديث إرث يمتد لـ 50 عاماً بقيادة السيد محمد النعيمي"
+
+msgid "Led by CEO Mr. Mohammed Yousef Nasser Al Nuaimi, Yousuf Bin Nasser & Sons Real Estate strategically transformed into Edrak Properties. The rebrand united 50+ years of family pedigree with modern institutional governance, digital contract workflows, and data-backed yield advisory."
+msgstr "بقيادة الرئيس التنفيذي السيد محمد يوسف ناصر النعيمي، تحولت شركة يوسف بن ناصر وأولاده للعقارات استراتيجياً إلى إدراك العقارية. وحدت هذه الهوية أكثر من 50 عاماً من العراقة العائلية مع الحوكمة المؤسسية الحديثة وإدارة العقود الرقمية واستشارات العوائد المبنية على البيانات."
+
+msgid "AI-Audited Maintenance, 99.9% Occupancy & Regional Growth"
+msgstr "صيانة مدققة بالذكاء الاصطناعي وإشغال 99.9% ونمو إقليمي"
+
+msgid "Today, Edrak Properties operates at the intersection of timeless hospitality and modern engineering—deploying automated invoice auditing, GPS-tracked 24/7 maintenance crews, and real-time financial synchronization to set the gold standard for real estate across the UAE."
+msgstr "اليوم، تعمل إدراك العقارية عند نقطة الالتقاء بين الأصالة والهندسة الحديثة — عبر نشر التدقيق الآلي للفواتير، وفرق الصيانة المتتبعة عبر نظام تحديد المواقع على مدار الساعة، والمزامنة المالية الفورية لإرساء المعيار الذهبي للعقارات في الإمارات."
+
+msgid "Key Milestone"
+msgstr "أبرز إنجاز مرحلي"
+
+msgid "First Commercial & Residential Plots in Central Ajman"
+msgstr "أولى الأراضي والمباني التجارية والسكنية في وسط عجمان"
+
+msgid "Expansion Across Al Rashidiya & Central Districts"
+msgstr "التوسع عبر منطقة الراشدية والمناطق المركزية"
+
+msgid "Over AED 1 Billion in Managed & Owned Assets"
+msgstr "أكثر من مليار درهم من الأصول المملوكة والمدارة"
+
+msgid "Launch of Edrak Corporate Identity & HQ at Rashidiya M5"
+msgstr "إطلاق الهوية المؤسسية لإدراك والمقر الرئيسي في بناية الراشدية M5"
+
+msgid "99.9% Portfolio Occupancy & 10,000+ Network Milestone"
+msgstr "نسبة إشغال 99.9% وشبكة تضم أكثر من 10,000 عميل ومستثمر"
+
+msgid "Core Pillar Established"
+msgstr "الركيزة الأساسية"
+
+msgid "Generational Handshake Trust & Land Stewardship"
+msgstr "ثقة الأجيال الراسخة وإدارة الأراضي الاستراتيجية"
+
+msgid "Long-Term Tenant Retention & Community Building"
+msgstr "الاحتفاظ بالمستأجرين على المدى الطويل وبناء المجتمعات"
+
+msgid "In-House Engineering & Full-Lifecycle Custody"
+msgstr "الهندسة الداخلية والرعاية المتكاملة لدورة حياة العقار"
+
+msgid "Data-Driven Yield Optimization & Global Investor Access"
+msgstr "تعظيم العوائد بالبيانات وتمكين المستثمرين العالميين"
+
+msgid "Predictive Asset Protection & Generational Wealth"
+msgstr "الحماية الاستباقية للأصول وتنمية ثروات الأجيال"
+
+msgid "Foundational UAE Urban Growth"
+msgstr "النهضة العمرانية التأسيسية في الإمارات"
+
+msgid "Expanding Commercial & Residential Corridors"
+msgstr "توسيع المحاور التجارية والسكنية"
+
+msgid "Multi-Story Landmark Portfolio"
+msgstr "محفظة المباني والأبراج متعددة الطوابق"
+
+msgid "The Edrak Institutional Era"
+msgstr "عصر إدراك المؤسسي"
+
+msgid "Future-Ready Real Estate Infrastructure"
+msgstr "بنية تحتية عقارية جاهزة للمستقبل"
+
+msgid "The Definitive Distinction"
+msgstr "الفرق الجوهري"
+
+msgid "Why Choose Edrak Over Any Other Firm?"
+msgstr "لماذا تختار إدراك العقارية دون غيرها؟"
+
+msgid "Most real estate agencies only care until the commission cheque clears. Because Edrak Properties was born as an asset-owning family enterprise (Yousuf Bin Nasser & Sons), our entire operational DNA is built to protect property value over decades, not days."
+msgstr "تهتم معظم وكالات العقارات فقط حتى لحظة صرف شيك العمولة. ولأن إدراك العقارية وُلدت كمؤسسة عائلية مالكة للأصول (يوسف بن ناصر وأولاده)، فإن منظومتنا التشغيلية بالكامل مصممة لحماية قيمة العقار عبر العقود وليس لأيام معدودة."
+
+msgid "Skin in the Game"
+msgstr "شركاء في الملكية"
+
+msgid "Principal Owner Mentality"
+msgstr "عقلية المالك الرئيسي"
+
+msgid "We own and operate our own flagship buildings alongside client portfolios. We never experiment with your capital—we apply the exact maintenance, leasing, and legal protocols that safeguard our own family estates."
+msgstr "نحن نمتلك وندير مبانينا الرئيسية الخاصة جنباً إلى جنب مع محافظ عملائنا. لا نجازف أبداً برأس مالك — بل نطبق ذات بروتوكولات الصيانة والتأجير والشؤون القانونية التي تحمي ممتلكات عائلتنا."
+
+msgid "Zero Subcontracting Lag"
+msgstr "دون وسطاء صيانة"
+
+msgid "In-House Technical & Maintenance Fleet"
+msgstr "أسطول فني وهندسي داخلي للصيانة"
+
+msgid "Deferred maintenance silently destroys property yields. Edrak commands an audited, GPS-tracked 24/7 engineering and facility crew—handling HVAC, plumbing, electrical, and civil works at wholesale material cost."
+msgstr "الصيانة المؤجلة تستنزف عوائد العقارات بصمت. تقود إدراك فريقاً هندسياً وفنياً داخلياً يعمل على مدار الساعة — يتولى أعمال التكييف والسباكة والكهرباء والأعمال المدنية بتكلفة المواد الأساسية."
+
+msgid "Financial Precision"
+msgstr "دقة مالية متناهية"
+
+msgid "Institutional Accounting & PDC Custody"
+msgstr "محاسبة مؤسسية وإدارة دقيقة للشيكات المؤجلة"
+
+msgid "Every dirham is tracked through synchronized enterprise ledgers. From post-dated cheque (PDC) clearing and automated rent reminders to itemized maintenance invoicing, landlords enjoy 100% audit-ready clarity."
+msgstr "يتم تتبع كل درهم عبر دفاتر محاسبية مؤسسية متزامنة. من تحصيل الشيكات المؤجلة والتذكير الآلي بالإيجارات إلى فواتير الصيانة المفصلة، يتمتع الملاك بشفافية مالية جاهزة للتدقيق بنسبة 100%."
+
+msgid "Quality Occupancy"
+msgstr "جودة الإشغال"
+
+msgid "Rigorous 4-Point Tenant Vetting"
+msgstr "فحص دقيق للمستأجرين من 4 مراحل"
+
+msgid "High occupancy means nothing if tenants default. We verify employment, corporate trade licenses, banking history, and prior tenancy records—resulting in a 99.9% occupancy rate and minimal legal disputes."
+msgstr "لا قيمة للإشغال المرتفع إذا تعثر المستأجرون. نحن نتحقق من جهات العمل والرخص التجارية والسجل المصرفي وسوابق الإيجار — مما يثمر عن نسبة إشغال 99.9% وأدنى حد من النزاعات القانونية."
+
+msgid "Market Authority"
+msgstr "الريادة في السوق"
+
+msgid "Unrivaled Ajman & Northern Emirates Access"
+msgstr "وصول لا يضاهى في عجمان والإمارات الشمالية"
+
+msgid "Five decades as Yousuf Bin Nasser & Sons gives us direct access to off-market land plots, high-yield whole buildings, and municipal regulatory speed that newcomers simply cannot replicate."
+msgstr "خمسة عقود تحت اسم يوسف بن ناصر وأولاده تمنحنا وصولاً مباشراً إلى الأراضي الحصرية والمباني الكاملة عالية العائد وسرعة الإجراءات التنظيمية والبلدية التي لا يمكن للشركات الجديدة مضاهاتها."
+
+msgid "Absentee Peace of Mind"
+msgstr "راحة بال تامة للملاك"
+
+msgid "Turnkey Global Investor Custody"
+msgstr "إدارة متكاملة للمستثمرين حول العالم"
+
+msgid "Whether you reside in Ajman, Dubai, London, or Riyadh, Edrak acts as your single point of accountability—handling municipal attestations, Tasdeeq contracts, utilities, and net yield transfers seamlessly."
+msgstr "سواء كنت مقيماً في عجمان أو دبي أو لندن أو الرياض، تعمل إدراك كجهة مسؤولة واحدة تنوب عنك — حيث تتولى تصديق العقود والبلدية والمرافق وتحويل صافي العوائد بكل سلاسة."
+
+msgid "Side-By-Side Benchmark"
+msgstr "مقارنة معيارية مباشرة"
+
+msgid "The Edrak Standard vs. Conventional Agencies"
+msgstr "معيار إدراك مقابل وكالات العقارات التقليدية"
+
+msgid "Backed by 50+ Years of YBN Institutional Heritage"
+msgstr "مدعومة بأكثر من 50 عاماً من الإرث المؤسسي ليوسف بن ناصر"
+
+msgid "Core Capability"
+msgstr "القدرة الأساسية"
+
+msgid "Edrak Properties (YBN Legacy)"
+msgstr "إدراك العقارية (إرث يوسف بن ناصر)"
+
+msgid "Typical Market Brokerage"
+msgstr "شركة الوساطة التقليدية"
+
+msgid "Market Pedigree"
+msgstr "العراقة في السوق"
+
+msgid "50+ Years (Yousuf Bin Nasser & Sons Foundation)"
+msgstr "أكثر من 50 عاماً (تأسيس يوسف بن ناصر وأولاده)"
+
+msgid "Short-term agency with high agent turnover"
+msgstr "وكالة قصيرة الأمد مع دوران وظيفي مرتفع للوسطاء"
+
+msgid "Facility & Building Maintenance"
+msgstr "صيانة المرافق والمباني"
+
+msgid "In-House 24/7 Engineers + Audited Material Costs"
+msgstr "مهندسون وفنيون داخليون 24/7 + تكاليف مواد مدققة"
+
+msgid "Outsourced third-party contractors with heavy markups"
+msgstr "مقاولون خارجيون مع هوامش ربح إضافية مرتفعة"
+
+msgid "Financial & Cheque Tracking"
+msgstr "المتابعة المالية وإدارة الشيكات"
+
+msgid "Automated Ledger Sync, PDC Alerts & Itemized Audits"
+msgstr "مزامنة محاسبية آلية، تنبيهات الشيكات، وتدقيق مفصل"
+
+msgid "Manual spreadsheets and delayed owner statements"
+msgstr "جداول يدوية وتأخر في كشوفات حسابات الملاك"
+
+msgid "Average Portfolio Occupancy"
+msgstr "متوسط إشغال المحفظة"
+
+msgid "99.9% Across Managed Residential & Commercial Assets"
+msgstr "99.9% عبر الأصول السكنية والتجارية المدارة"
+
+msgid "82% – 88% due to slow unit turnaround"
+msgstr "82% – 88% بسبب بطء تجهيز الوحدات وإعادة تأجيرها"
+
+msgid "Alignment of Interest"
+msgstr "توافق المصالح"
+
+msgid "Principal Asset Owners—We Manage What We Own"
+msgstr "ملاك أصول رئيسيون — ندير عقارك كما ندير ملكنا"
+
+msgid "Commission-driven transaction focus only"
+msgstr "تركيز يقتصر على عمولة الصفقة فقط"
+
+msgid "Live Backend Portfolio"
+msgstr "محفظة المباني الحية"
+
+msgid "Buildings"
+msgstr "مبنى"
+
+msgid "Our Landmark Buildings & Developments"
+msgstr "مبانينا ومشاريعنا العمرانية البارزة"
+
+msgid "All Buildings"
+msgstr "جميع المباني"
+
+msgid "Edrak Managed"
+msgstr "بإدارة إدراك"
+
+msgid "Units"
+msgstr "وحدة"
+
+msgid "Inspect Building"
+msgstr "استعراض المبنى"
+
+msgid "Available Units"
+msgstr "الوحدات المتاحة"
+
+msgid "No buildings have been added to the database yet. Add projects in the dashboard to display them here automatically."
+msgstr "لم تتم إضافة مباني في قاعدة البيانات بعد. أضف المشاريع من لوحة التحكم لتظهر هنا تلقائياً."
+
+msgid "View Full Projects Directory"
+msgstr "عرض دليل المشاريع الكامل"
+
+msgid "Immediate Residency & Commercial Spaces"
+msgstr "وحدات سكنية ومساحات تجارية جاهزة"
+
+msgid "Active Listings"
+msgstr "وحدة نشطة"
+
+msgid "Featured Units From Our Database"
+msgstr "وحدات مختارة من قاعدة بياناتنا"
+
+msgid "Explore All Available Leases"
+msgstr "استكشف جميع الإيجارات المتاحة"
+
+msgid "Year"
+msgstr "سنوياً"
+
+msgid "Beds"
+msgstr "غرف"
+
+msgid "Baths"
+msgstr "حمامات"
+
+msgid "Sq.Ft"
+msgstr "قدم مربع"
+
+msgid "View Unit Details"
+msgstr "عرض تفاصيل الوحدة"
+
+msgid "Operational Architecture"
+msgstr "الهيكلية التشغيلية"
+
+msgid "How We Protect Every Square Foot."
+msgstr "كيف نحمي كل قدم مربع."
+
+msgid "Behind Edrak's calm luxury exterior sits a relentless operational machine. Every building in our care undergoes strict daily protocols designed to eliminate landlord headaches and maximize resident satisfaction."
+msgstr "خلف الواجهة الفاخرة لشركة إدراك تعمل منظومة تشغيلية دقيقة لا تهدأ. يخضع كل مبنى تحت رعايتنا لبروتوكولات يومية صارمة مصممة لراحة بال الملاك وتحقيق أعلى درجات الرضا للسكان."
+
+msgid "Direct Headquarters Oversight"
+msgstr "إشراف مباشر من المقر الرئيسي"
+
+msgid "Our doors at Rashidiya Building M5 are open daily. Landlords and tenants speak directly with decision-makers, engineers, and senior portfolio accountants—never an offshore call center."
+msgstr "أبوابنا في بناية الراشدية M5 مفتوحة يومياً. يتحدث الملاك والمستأجرون مباشرة مع صناع القرار والمهندسين وكبار محاسبي المحافظ — وليس مع مراكز اتصال خارجية."
+
+msgid "Preventive Engineering & Audited Maintenance"
+msgstr "الهندسة الوقائية والصيانة المدققة"
+
+msgid "Rather than waiting for expensive breakdowns, our technical teams execute scheduled seasonal servicing across all chillers, split AC units, lift rooms, water pumps, and waterproofing membranes. Every material invoice is cross-audited against historical supplier pricing so owners never overpay."
+msgstr "بدلاً من انتظار الأعطال المكلفة، تنفذ فرقنا الفنية صيانة موسمية مجدولة لكافة أنظمة التبريد والتكييف والمصاعد ومضخات المياه والعزل. ويتم تدقيق كل فاتورة مواد مقارنة بالأسعار المرجعية للموردين لضمان عدم تحمل الملاك أي تكاليف زائدة."
+
+msgid "Zero-Leakage Rent Collection & Legal Custody"
+msgstr "تحصيل الإيجارات بالكامل والحماية القانونية"
+
+msgid "Our leasing division manages the entire cheque lifecycle—from Tasdeeq contract registration and security deposit custody to automated pre-deposit notifications. If a payment exception ever arises, our in-house legal liaison handles municipal dispute resolution swiftly and compliantly."
+msgstr "يدير قسم التأجير لدينا دورة حياة الشيكات بالكامل — بدءاً من تسجيل عقود تصديق وحفظ التأمينات وصولاً إلى الإشعارات الآلية قبل الإيداع. وفي حال حدوث أي استثناء في السداد، يتولى فريق المتابعة القانونية تسوية المنازعات البلدية بسرعة ووفق الأصول القانونية."
+
+msgid "Strategic Capital Appreciation & Refurbishment"
+msgstr "تنمية القيمة الرأسمالية والتجديد الاستراتيجي"
+
+msgid "Older buildings in Ajman often suffer from rental stagnation. Edrak advises on and executes high-ROI modernizations—upgrading lobbies, lighting, kitchens, and sanitary fittings—allowing older family buildings to command premium modern rental rates."
+msgstr "كثيراً ما تعاني المباني القديمة من ركود القيمة الإيجارية. تقدم إدراك استشارات وتنفذ عمليات تحديث عالية العائد — تشمل تطوير المداخل والإضاءة والمطابخ والتجهيزات الصحية — مما يتيح للمباني العائلية تحقيق عوائد إيجارية تنافس المباني الحديثة."
+
+msgid "Bespoke Advisory for Global & Institutional Buyers"
+msgstr "استشارات مخصصة للمشترين العالميين والمؤسسات"
+
+msgid "For investors acquiring whole residential towers, industrial warehouses, or off-plan allocations, we provide unvarnished feasibility studies grounded in 50 years of real transaction data across Ajman and the UAE."
+msgstr "للمستثمرين الراغبين في الاستحواذ على أبراج سكنية كاملة أو مستودعات صناعية أو حصص على الخارطة، نقدم دراسات جدوى دقيقة تستند إلى 50 عاماً من بيانات الصفقات الفعلية في عجمان والإمارات."
+
+msgid "Enduring Relationships"
+msgstr "علاقات راسخة عبر السنين"
+
+msgid "Trusted by Landlords, Investors & Families"
+msgstr "محل ثقة الملاك والمستثمرين والعائلات"
+
+msgid "Our family has entrusted our Ajman residential buildings to Yousuf Bin Nasser & Sons—and now Edrak Properties—for over two decades. Under Mr. Mohammed Al Nuaimi's leadership, our occupancy has remained near 100% and our maintenance costs are the most transparent in the Emirates."
+msgstr "عهدت عائلتنا بإدارة مبانينا السكنية في عجمان إلى شركة يوسف بن ناصر وأولاده — والآن إدراك العقارية — لأكثر من عقدين من الزمن. وتحت قيادة السيد محمد النعيمي، ظلت نسبة الإشغال لدينا قريبة من 100% وتكاليف الصيانة هي الأكثر شفافية في الإمارات."
+
+msgid "Private Multi-Tower Landlord"
+msgstr "مالك خاص لعدة أبراج سكنية"
+
+msgid "22-Year Portfolio Client • Ajman & Dubai"
+msgstr "عميل محفظة منذ 22 عاماً • عجمان ودبي"
+
+msgid "As an overseas investor, I needed a partner who actually owns buildings and understands facility engineering, not a flashy sales broker. Edrak sourced our commercial asset, vetted every corporate tenant, and deposits our net yield like clockwork."
+msgstr "كمستثمر مقيم في الخارج، كنت بحاجة إلى شريك يمتلك المباني فعلياً ويفهم هندسة المرافق، وليس مجرد وسيط مبيعات. وفرت لنا إدراك الأصل التجاري، وفحصت كل مستأجر بدقة، وتودع صافي عوائدنا في موعدها المحدد دائماً."
+
+msgid "GCC Institutional Investor"
+msgstr "مستثمر مؤسسي خليجي"
+
+msgid "Commercial & Industrial Portfolio"
+msgstr "محفظة عقارية تجارية وصناعية"
+
+msgid "Living in an Edrak-managed building feels completely different from other properties in the city. The security staff know every family, the corridors are spotless, and if an AC ever needs servicing, their technical team arrives the same day."
+msgstr "السكن في مبنى تديره شركة إدراك يختلف تماماً عن أي عقار آخر في المدينة. موظفو الأمن يعرفون كل عائلة، والممرات نظيفة دائماً، وإذا احتاج التكييف لأي صيانة فإن فريقهم الفني يصل في نفس اليوم."
+
+msgid "Long-Term Resident Family"
+msgstr "عائلة مقيمة منذ سنوات طويلة"
+
+msgid "8-Year Tenant • Rashidiya, Ajman"
+msgstr "مستأجر منذ 8 سنوات • الراشدية، عجمان"
+
+msgid "Yousuf Bin Nasser & Sons Pedigree • Edrak Future"
+msgstr "عراقة يوسف بن ناصر وأولاده • مستقبل إدراك"
+
+msgid "Place Your Assets in Half-Century Hands."
+msgstr "ضع أصولك العقارية في أيدٍ أمينة تمتد لنصف قرن."
+
+msgid "Whether you are looking to assign a residential tower for turnkey management, acquire high-yield UAE real estate, or lease a premier residence or commercial space, our executive team is ready to welcome you."
+msgstr "سواء كنت تتطلع إلى إسناد إدارة برج سكني بالكامل، أو الاستحواذ على عقارات عالية العائد في الإمارات، أو استئجار مسكن متميز أو مساحة تجارية، فإن فريقنا التنفيذي مستعد للترحيب بك."
+
+msgid "Schedule an Executive Consultation"
+msgstr "احجز استشارة تنفيذية"
+
+msgid "Explore All Buildings"
+msgstr "استكشف جميع المباني"
+

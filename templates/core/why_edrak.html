@@ -1,0 +1,1015 @@
+{% extends 'base.html' %}
+{% load static i18n humanize %}
+
+{% block content %}
+<style>
+    .reveal { opacity: 0; transform: translateY(36px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .gold-shimmer {
+        background: linear-gradient(90deg, #C59D3F 0%, #F3E5AB 50%, #C59D3F 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 6s linear infinite;
+    }
+    @keyframes shimmer { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+
+    .blueprint-grid {
+        background-image:
+            linear-gradient(to right, rgba(197, 157, 63, 0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(197, 157, 63, 0.06) 1px, transparent 1px);
+        background-size: 48px 48px;
+    }
+
+    input[type="range"].edrak-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        background: #27272a;
+        outline: none;
+    }
+    input[type="range"].edrak-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 22px;
+        height: 22px;
+        background: #C59D3F;
+        cursor: pointer;
+        border: 2px solid #ffffff;
+        transition: transform 0.2s ease;
+    }
+    input[type="range"].edrak-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<!-- ==========================================
+     STICKY CHAPTER SUB-NAVIGATION & PROGRESS
+=========================================== -->
+<div class="sticky top-20 md:top-24 z-40 bg-[#050505]/95 backdrop-blur-xl border-b border-zinc-800/80">
+    <div class="h-[2px] bg-zinc-900 w-full overflow-hidden">
+        <div id="reading-progress" class="h-full bg-gold w-0 transition-all duration-150"></div>
+    </div>
+
+</div>
+
+<!-- ==========================================
+     00. MONUMENTAL HERO SECTION (BACKEND / LOCAL IMAGE)
+=========================================== -->
+<section class="relative pt-24 pb-24 md:pt-36 md:pb-36 bg-[#050505] border-b border-zinc-900 overflow-hidden blueprint-grid">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+        {% if projects.first and projects.first.image %}
+            <img src="{{ projects.first.image.url }}" alt="{{ projects.first.title }}" class="w-full h-full object-cover opacity-25 mix-blend-luminosity scale-105">
+        {% else %}
+            <img src="{% static 'img/AJMAN REAL ESTATE ARCHITAECTURE.jpg' %}" alt="Edrak Architecture" class="w-full h-full object-cover opacity-25 mix-blend-luminosity scale-105">
+        {% endif %}
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/85 to-[#050505]/60"></div>
+    </div>
+
+    <div class="max-w-[90rem] mx-auto px-6 relative z-10">
+        <div class="max-w-4xl">
+            <div class="inline-flex flex-wrap items-center gap-3 border border-gold/40 bg-gold/10 px-4 py-2 mb-8 reveal">
+                <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                <span class="text-gold text-[10px] md:text-xs font-bold uppercase tracking-[0.25em]">
+                    {% trans "Formerly Yousuf Bin Nasser & Sons Real Estate • Est. Over 50 Years" %}
+                </span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-[1.05] mb-8 break-words reveal">
+                {% trans "Half a Century of" %} <br>
+                <span class="gold-shimmer">{% trans "Unshakeable Trust." %}</span>
+            </h1>
+
+            <p class="text-zinc-300 text-lg md:text-2xl font-light leading-relaxed max-w-3xl mb-12 reveal">
+                {% trans "In a market crowded with transient brokerages, Edrak Properties stands apart as a generational institution. Born from the half-century legacy of Yousuf Bin Nasser & Sons Real Estate, we do not merely transact property—we engineer, own, manage, and protect enduring real estate wealth across Ajman and the United Arab Emirates." %}
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-5 reveal">
+                <a href="#landmarks" class="bg-gold text-black px-10 py-5 text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all text-center">
+                    {% trans "Inspect Our Building Portfolio" %}
+                </a>
+                <a href="#pedigree" class="border border-zinc-700 bg-zinc-900/70 text-white px-10 py-5 text-xs font-bold uppercase tracking-[0.2em] hover:border-gold hover:text-gold transition-all text-center">
+                    {% trans "Explore Our 50-Year Pedigree" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom Hero Trust Strip -->
+        <div class="mt-20 pt-10 border-t border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+            <div class="border-l-2 border-gold pl-5">
+                <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500 mb-1">{% trans "Foundation & Heritage" %}</p>
+                <p class="text-white font-bold text-sm">{% trans "Yousuf Bin Nasser & Sons Real Estate" %}</p>
+            </div>
+            <div class="border-l-2 border-gold pl-5">
+                <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500 mb-1">{% trans "Executive Leadership" %}</p>
+                <p class="text-white font-bold text-sm">{% trans "Mr. Mohammed Yousef Nasser Al Nuaimi" %}</p>
+            </div>
+            <div class="border-l-2 border-gold pl-5">
+                <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500 mb-1">{% trans "Corporate Headquarters" %}</p>
+                <p class="text-white font-bold text-sm">{% trans "Rashidiya Building, M5, Ajman, UAE" %}</p>
+            </div>
+            <div class="border-l-2 border-gold pl-5">
+                <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500 mb-1">{% trans "Operational Standard" %}</p>
+                <p class="text-white font-bold text-sm">{% trans "Principal Asset Owner & 360° Operator" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     01. THE PEDIGREE: YOUSUF BIN NASSER & SONS TO EDRAK
+=========================================== -->
+<section id="pedigree" class="py-28 md:py-36 bg-white text-zinc-900 border-b border-zinc-200 overflow-hidden">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+            <!-- Left Column: Visual Heritage Composition (Backend / Local Static) -->
+            <div class="lg:col-span-6 relative reveal">
+                <div class="relative z-10 border-4 border-zinc-900 shadow-2xl overflow-hidden bg-zinc-900">
+                    {% if projects.first and projects.first.image %}
+                        <img src="{{ projects.first.image.url }}" alt="{{ projects.first.title }}" class="w-full h-[500px] md:h-[620px] object-cover">
+                    {% else %}
+                        <img src="{% static 'img/real_estate_uae (1).jpg' %}" alt="Yousuf Bin Nasser Legacy Architecture" class="w-full h-[500px] md:h-[620px] object-cover">
+                    {% endif %}
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-8 md:p-10">
+                        <span class="text-gold text-[10px] font-bold uppercase tracking-[0.3em] mb-2">{% trans "Institutional Continuity" %}</span>
+                        <h3 class="text-2xl md:text-3xl font-black text-white leading-tight">
+                            {% trans "From Yousuf Bin Nasser & Sons to Edrak Properties: One Unbroken Promise." %}
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Floating Pedigree Seal Card -->
+                <div class="bg-[#09090b] text-white p-8 border-l-4 border-gold shadow-2xl mt-6 md:mt-0 md:absolute md:-bottom-10 md:-right-8 md:max-w-sm z-20">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gold font-black text-4xl">50+</span>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400 border border-zinc-800 px-3 py-1">{% trans "Years in UAE" %}</span>
+                    </div>
+                    <p class="text-xs text-zinc-300 leading-relaxed font-medium">
+                        {% trans "Built on decades of tangible brick-and-mortar ownership across Ajman, protecting multi-generational family capital and international institutional portfolios alike." %}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Deep Narrative -->
+            <div class="lg:col-span-6 reveal">
+                <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-4">01 / {% trans "The Pedigree & Bloodline" %}</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-zinc-900 tracking-tight leading-[1.1] mb-8 break-words">
+                    {% trans "Roots Cast in Stone." %}<br>
+                    <span class="text-gold">{% trans "Vision Built for Tomorrow." %}</span>
+                </h2>
+
+                <div class="space-y-6 text-zinc-600 text-base md:text-lg leading-relaxed">
+                    <p>
+                        {% trans "To understand why discerning landlords, sovereign-tier investors, and thousands of families trust Edrak Properties, one must look at our foundation: Yousuf Bin Nasser & Sons Real Estate (YBN). For over fifty years, the Yousuf Bin Nasser name has been synonymous with reliability, ethical stewardship, and urban pioneering in Ajman and across the Emirates." %}
+                    </p>
+                    <p>
+                        {% trans "Long before modern glass towers defined the skyline, Yousuf Bin Nasser & Sons Real Estate was acquiring strategic land, constructing enduring residential and commercial buildings, and establishing a reputation where a handshake carried the weight of an ironclad contract." %}
+                    </p>
+                    <p>
+                        {% trans "Under the visionary leadership of CEO Mr. Mohammed Yousef Nasser Al Nuaimi, the company evolved into Edrak Properties—meaning 'Perception, Deep Understanding, and Realization.' This evolution united half a century of physical asset ownership with modern data analytics, automated financial transparency, and institutional-grade facility management." %}
+                    </p>
+                </div>
+
+                <!-- Leadership Quote Box -->
+                <div class="mt-10 p-8 bg-zinc-50 border-l-4 border-zinc-900">
+                    <p class="text-zinc-800 font-semibold italic text-base md:text-lg leading-relaxed mb-4">
+                        "{% trans "Our name changed to reflect our technological and analytical evolution, but our soul remains the exact legacy of Yousuf Bin Nasser & Sons. Every building we manage is maintained as if our own family name is etched onto its facade—because for over fifty years, it has been." %}"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="{% static 'img/logo-edrak.png' %}" alt="Edrak Seal" class="h-10 w-auto object-contain bg-white p-1 border border-zinc-200">
+                        <div>
+                            <p class="text-xs font-black uppercase tracking-widest text-zinc-900">{% trans "Mr. Mohammed Yousef Nasser Al Nuaimi" %}</p>
+                            <p class="text-[11px] font-semibold text-gold uppercase tracking-wider">{% trans "Chief Executive Officer • Edrak Properties" %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     02. BY THE NUMBERS (ANIMATED IMPACT METRICS)
+=========================================== -->
+<section id="numbers" class="py-24 bg-[#050505] text-white border-b border-zinc-900 relative overflow-hidden">
+    <div class="max-w-[90rem] mx-auto px-6 relative z-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+            <div>
+                <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">02 / {% trans "Quantified Dependability" %}</span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight break-words">{% trans "A Track Record Audited by Time" %}</h2>
+            </div>
+            <p class="text-zinc-400 text-sm max-w-md leading-relaxed">
+                {% trans "Real estate claims are easy to make; five decades of uninterrupted occupancy, asset appreciation, and on-time landlord disbursements are impossible to fabricate." %}
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-zinc-800 border border-zinc-800">
+            <div class="bg-[#09090b] p-10 md:p-12 hover:bg-[#121216] transition-colors reveal">
+                <span class="text-gold text-[10px] font-bold uppercase tracking-[0.25em] block mb-4">{% trans "Market Longevity" %}</span>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 flex items-baseline gap-1">
+                    <span class="counter" data-target="50">0</span><span>+</span>
+                    <span class="text-lg font-bold text-gold ml-2">{% trans "Years" %}</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    {% trans "Continuous real estate operations in Ajman and the UAE, weathering every global economic cycle with zero defaults." %}
+                </p>
+            </div>
+
+            <div class="bg-[#09090b] p-10 md:p-12 hover:bg-[#121216] transition-colors reveal">
+                <span class="text-gold text-[10px] font-bold uppercase tracking-[0.25em] block mb-4">{% trans "Portfolio Valuation" %}</span>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-zinc-500 mr-1">AED</span>
+                    <span class="counter" data-target="1.2" data-decimals="1">0</span><span>B+</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    {% trans "In active residential towers, commercial buildings, luxury villas, and industrial assets under direct Edrak stewardship." %}
+                </p>
+            </div>
+
+            <div class="bg-[#09090b] p-10 md:p-12 hover:bg-[#121216] transition-colors reveal">
+                <span class="text-gold text-[10px] font-bold uppercase tracking-[0.25em] block mb-4">{% trans "Asset Demand" %}</span>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 flex items-baseline gap-1">
+                    <span class="counter" data-target="99.9" data-decimals="1">0</span><span>%</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    {% trans "Sustained occupancy rate across our managed buildings, driven by proactive maintenance and tenant-first governance." %}
+                </p>
+            </div>
+
+            <div class="bg-[#09090b] p-10 md:p-12 hover:bg-[#121216] transition-colors reveal">
+                <span class="text-gold text-[10px] font-bold uppercase tracking-[0.25em] block mb-4">{% trans "Community & Network" %}</span>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 flex items-baseline gap-1">
+                    <span class="counter" data-target="10000">0</span><span>+</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    {% trans "Global investors, commercial enterprises, and residential families served across our buildings and advisory mandates." %}
+                </p>
+            </div>
+
+            <div class="bg-[#09090b] p-10 md:p-12 hover:bg-[#121216] transition-colors reveal">
+                <span class="text-gold text-[10px] font-bold uppercase tracking-[0.25em] block mb-4">{% trans "Engineering Response" %}</span>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 flex items-baseline gap-1">
+                    <span>24/7</span>
+                    <span class="text-lg font-bold text-gold ml-2">{% trans "In-House SLA" %}</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    {% trans "Dedicated technical maintenance crews, HVAC specialists, and audited rapid-response dispatchers protecting every unit." %}
+                </p>
+            </div>
+
+            <div class="bg-[#09090b] p-10 md:p-12 hover:bg-[#121216] transition-colors reveal">
+                <span class="text-gold text-[10px] font-bold uppercase tracking-[0.25em] block mb-4">{% trans "Tenant Retention" %}</span>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 flex items-baseline gap-1">
+                    <span class="counter" data-target="94">0</span><span>%</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    {% trans "Multi-year lease renewal rate, eliminating costly turnover vacancies and stabilizing net cash flow for property owners." %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     03. INTERACTIVE 50-YEAR HERITAGE TIMELINE (LOCAL & BACKEND IMAGES)
+=========================================== -->
+<section id="timeline" class="py-28 md:py-36 bg-[#09090b] text-white border-b border-zinc-900">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">03 / {% trans "Chronicle of Excellence" %}</span>
+            <h2 class="text-3xl sm:text-5xl font-black tracking-tight mb-6 break-words">{% trans "Five Decades of Shaping the Emirates" %}</h2>
+            <p class="text-zinc-400 text-base leading-relaxed">
+                {% trans "Select an era below to explore how Yousuf Bin Nasser & Sons Real Estate grew from a pioneering local land steward into Edrak Properties." %}
+            </p>
+        </div>
+
+        <!-- Interactive Era Tabs -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-12 reveal">
+            <button onclick="selectEra(0)" class="era-tab border border-gold bg-gold text-black py-4 px-4 text-left transition-all">
+                <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">1970s</span>
+                <span class="font-black text-sm uppercase">{% trans "The Founding" %}</span>
+            </button>
+            <button onclick="selectEra(1)" class="era-tab border border-zinc-800 bg-[#121216] text-zinc-400 hover:border-gold/50 py-4 px-4 text-left transition-all">
+                <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">1980s – 1990s</span>
+                <span class="font-black text-sm uppercase">{% trans "Urban Expansion" %}</span>
+            </button>
+            <button onclick="selectEra(2)" class="era-tab border border-zinc-800 bg-[#121216] text-zinc-400 hover:border-gold/50 py-4 px-4 text-left transition-all">
+                <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">2000s – 2010s</span>
+                <span class="font-black text-sm uppercase">{% trans "Tower Landmarks" %}</span>
+            </button>
+            <button onclick="selectEra(3)" class="era-tab border border-zinc-800 bg-[#121216] text-zinc-400 hover:border-gold/50 py-4 px-4 text-left transition-all">
+                <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">2020 – 2024</span>
+                <span class="font-black text-sm uppercase">{% trans "Edrak Rebrand" %}</span>
+            </button>
+            <button onclick="selectEra(4)" class="era-tab col-span-2 md:col-span-1 border border-zinc-800 bg-[#121216] text-zinc-400 hover:border-gold/50 py-4 px-4 text-left transition-all">
+                <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">2025 – Future</span>
+                <span class="font-black text-sm uppercase">{% trans "PropTech & Scale" %}</span>
+            </button>
+        </div>
+
+        <!-- Era Display Panel -->
+        <div class="bg-[#121216] border border-zinc-800 p-8 md:p-14 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block bg-gold/10 border border-gold/40 text-gold text-xs font-bold uppercase tracking-[0.25em] px-4 py-1.5" id="era-badge">
+                        1970s • {% trans "Genesis of a Dynasty" %}
+                    </div>
+                    <h3 id="era-title" class="text-3xl md:text-4xl font-black text-white tracking-tight">
+                        {% trans "Establishment of Yousuf Bin Nasser & Sons Real Estate" %}
+                    </h3>
+                    <p id="era-desc" class="text-zinc-300 text-base md:text-lg leading-relaxed">
+                        {% trans "As the United Arab Emirates forged its historic union, Yousuf Bin Nasser & Sons Real Estate established its foundational footprint in Ajman. Focusing on essential housing, merchant commercial spaces, and long-term land banking, the firm earned an immediate reputation among founding families for absolute integrity and fair dealing." %}
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-zinc-800">
+                        <div>
+                            <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest block mb-1">{% trans "Key Milestone" %}</span>
+                            <p id="era-milestone" class="text-sm font-bold text-white">{% trans "First Commercial & Residential Plots in Central Ajman" %}</p>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest block mb-1">{% trans "Core Pillar Established" %}</span>
+                            <p id="era-pillar" class="text-sm font-bold text-gold">{% trans "Generational Handshake Trust & Land Stewardship" %}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="relative overflow-hidden border border-zinc-700 bg-black">
+                        <img id="era-image" src="{% static 'img/AJMAN REAL ESTATE ARCHITAECTURE.jpg' %}" alt="Era Milestone" class="w-full h-[340px] object-cover transition-all duration-500">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/80 backdrop-blur-sm p-4 border-t border-zinc-800 flex justify-between items-center">
+                            <span id="era-caption" class="text-xs font-bold uppercase tracking-widest text-zinc-300">{% trans "Foundational UAE Urban Growth" %}</span>
+                            <span class="text-gold font-black text-xs">YBN → EDRAK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     04. WHY EDRAK TRULY? (6 PILLARS + COMPARISON MATRIX)
+=========================================== -->
+<section id="pillars" class="py-28 md:py-36 bg-white text-zinc-900 border-b border-zinc-200">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="max-w-3xl mb-20 reveal">
+            <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">04 / {% trans "The Definitive Distinction" %}</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-zinc-900 tracking-tight mb-6 break-words">
+                {% trans "Why Choose Edrak Over Any Other Firm?" %}
+            </h2>
+            <p class="text-zinc-600 text-lg leading-relaxed">
+                {% trans "Most real estate agencies only care until the commission cheque clears. Because Edrak Properties was born as an asset-owning family enterprise (Yousuf Bin Nasser & Sons), our entire operational DNA is built to protect property value over decades, not days." %}
+            </p>
+        </div>
+
+        <!-- 6 Pillars Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+            <div class="bg-zinc-50 border border-zinc-200 p-10 hover:border-gold transition-all group reveal">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="w-12 h-12 bg-zinc-900 text-gold flex items-center justify-center font-black text-lg group-hover:bg-gold group-hover:text-black transition-colors">01</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{% trans "Skin in the Game" %}</span>
+                </div>
+                <h3 class="text-xl font-black text-zinc-900 mb-4">{% trans "Principal Owner Mentality" %}</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                    {% trans "We own and operate our own flagship buildings alongside client portfolios. We never experiment with your capital—we apply the exact maintenance, leasing, and legal protocols that safeguard our own family estates." %}
+                </p>
+            </div>
+
+            <div class="bg-zinc-50 border border-zinc-200 p-10 hover:border-gold transition-all group reveal">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="w-12 h-12 bg-zinc-900 text-gold flex items-center justify-center font-black text-lg group-hover:bg-gold group-hover:text-black transition-colors">02</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{% trans "Zero Subcontracting Lag" %}</span>
+                </div>
+                <h3 class="text-xl font-black text-zinc-900 mb-4">{% trans "In-House Technical & Maintenance Fleet" %}</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                    {% trans "Deferred maintenance silently destroys property yields. Edrak commands an audited, GPS-tracked 24/7 engineering and facility crew—handling HVAC, plumbing, electrical, and civil works at wholesale material cost." %}
+                </p>
+            </div>
+
+            <div class="bg-zinc-50 border border-zinc-200 p-10 hover:border-gold transition-all group reveal">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="w-12 h-12 bg-zinc-900 text-gold flex items-center justify-center font-black text-lg group-hover:bg-gold group-hover:text-black transition-colors">03</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{% trans "Financial Precision" %}</span>
+                </div>
+                <h3 class="text-xl font-black text-zinc-900 mb-4">{% trans "Institutional Accounting & PDC Custody" %}</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                    {% trans "Every dirham is tracked through synchronized enterprise ledgers. From post-dated cheque (PDC) clearing and automated rent reminders to itemized maintenance invoicing, landlords enjoy 100% audit-ready clarity." %}
+                </p>
+            </div>
+
+            <div class="bg-zinc-50 border border-zinc-200 p-10 hover:border-gold transition-all group reveal">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="w-12 h-12 bg-zinc-900 text-gold flex items-center justify-center font-black text-lg group-hover:bg-gold group-hover:text-black transition-colors">04</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{% trans "Quality Occupancy" %}</span>
+                </div>
+                <h3 class="text-xl font-black text-zinc-900 mb-4">{% trans "Rigorous 4-Point Tenant Vetting" %}</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                    {% trans "High occupancy means nothing if tenants default. We verify employment, corporate trade licenses, banking history, and prior tenancy records—resulting in a 99.9% occupancy rate and minimal legal disputes." %}
+                </p>
+            </div>
+
+            <div class="bg-zinc-50 border border-zinc-200 p-10 hover:border-gold transition-all group reveal">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="w-12 h-12 bg-zinc-900 text-gold flex items-center justify-center font-black text-lg group-hover:bg-gold group-hover:text-black transition-colors">05</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{% trans "Market Authority" %}</span>
+                </div>
+                <h3 class="text-xl font-black text-zinc-900 mb-4">{% trans "Unrivaled Ajman & Northern Emirates Access" %}</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                    {% trans "Five decades as Yousuf Bin Nasser & Sons gives us direct access to off-market land plots, high-yield whole buildings, and municipal regulatory speed that newcomers simply cannot replicate." %}
+                </p>
+            </div>
+
+            <div class="bg-zinc-50 border border-zinc-200 p-10 hover:border-gold transition-all group reveal">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="w-12 h-12 bg-zinc-900 text-gold flex items-center justify-center font-black text-lg group-hover:bg-gold group-hover:text-black transition-colors">06</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{% trans "Absentee Peace of Mind" %}</span>
+                </div>
+                <h3 class="text-xl font-black text-zinc-900 mb-4">{% trans "Turnkey Global Investor Custody" %}</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                    {% trans "Whether you reside in Ajman, Dubai, London, or Riyadh, Edrak acts as your single point of accountability—handling municipal attestations, Tasdeeq contracts, utilities, and net yield transfers seamlessly." %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Comparison Matrix Table -->
+        <div class="bg-[#09090b] text-white p-8 md:p-14 border border-zinc-800 reveal">
+            <div class="flex flex-col md:flex-row justify-between md:items-end mb-10 gap-4">
+                <div>
+                    <span class="text-gold text-[10px] font-bold uppercase tracking-[0.3em] block mb-2">{% trans "Side-By-Side Benchmark" %}</span>
+                    <h3 class="text-2xl md:text-3xl font-black">{% trans "The Edrak Standard vs. Conventional Agencies" %}</h3>
+                </div>
+                <span class="text-xs text-zinc-400 font-semibold">{% trans "Backed by 50+ Years of YBN Institutional Heritage" %}</span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-zinc-800 text-[11px] font-bold uppercase tracking-widest text-zinc-400">
+                            <th class="py-4 pr-6">{% trans "Core Capability" %}</th>
+                            <th class="py-4 px-6 bg-gold/10 text-gold border-x border-gold/30">{% trans "Edrak Properties (YBN Legacy)" %}</th>
+                            <th class="py-4 pl-6">{% trans "Typical Market Brokerage" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-800/80 text-sm">
+                        <tr>
+                            <td class="py-5 pr-6 font-bold text-white">{% trans "Market Pedigree" %}</td>
+                            <td class="py-5 px-6 bg-gold/5 border-x border-gold/20 text-white font-semibold">✓ {% trans "50+ Years (Yousuf Bin Nasser & Sons Foundation)" %}</td>
+                            <td class="py-5 pl-6 text-zinc-400">{% trans "Short-term agency with high agent turnover" %}</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 pr-6 font-bold text-white">{% trans "Facility & Building Maintenance" %}</td>
+                            <td class="py-5 px-6 bg-gold/5 border-x border-gold/20 text-white font-semibold">✓ {% trans "In-House 24/7 Engineers + Audited Material Costs" %}</td>
+                            <td class="py-5 pl-6 text-zinc-400">{% trans "Outsourced third-party contractors with heavy markups" %}</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 pr-6 font-bold text-white">{% trans "Financial & Cheque Tracking" %}</td>
+                            <td class="py-5 px-6 bg-gold/5 border-x border-gold/20 text-white font-semibold">✓ {% trans "Automated Ledger Sync, PDC Alerts & Itemized Audits" %}</td>
+                            <td class="py-5 pl-6 text-zinc-400">{% trans "Manual spreadsheets and delayed owner statements" %}</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 pr-6 font-bold text-white">{% trans "Average Portfolio Occupancy" %}</td>
+                            <td class="py-5 px-6 bg-gold/5 border-x border-gold/20 text-white font-semibold">✓ {% trans "99.9% Across Managed Residential & Commercial Assets" %}</td>
+                            <td class="py-5 pl-6 text-zinc-400">{% trans "82% – 88% due to slow unit turnaround" %}</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 pr-6 font-bold text-white">{% trans "Alignment of Interest" %}</td>
+                            <td class="py-5 px-6 bg-gold/5 border-x border-gold/20 text-white font-semibold">✓ {% trans "Principal Asset Owners—We Manage What We Own" %}</td>
+                            <td class="py-5 pl-6 text-zinc-400">{% trans "Commission-driven transaction focus only" %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     05. BACKEND-DRIVEN BUILDINGS & PROJECTS PORTFOLIO
+=========================================== -->
+<section id="landmarks" class="py-28 md:py-36 bg-[#050505] text-white border-b border-zinc-900">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-8 reveal">
+            <div>
+                <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">
+                    05 / {% trans "Live Backend Portfolio" %} ({{ total_projects }} {% trans "Buildings" %})
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight break-words">
+                    {% trans "Our Landmark Buildings & Developments" %}
+                </h2>
+            </div>
+
+            <!-- Dynamic Category Filter Buttons from Backend Statuses -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterPortfolio('all', this)" class="portfolio-btn bg-gold text-black px-5 py-2.5 text-xs font-black uppercase tracking-widest transition-all">
+                    {% trans "All Buildings" %}
+                </button>
+                {% for status in project_statuses %}
+                    {% if status %}
+                    <button onclick="filterPortfolio('{{ status|slugify }}', this)" class="portfolio-btn bg-[#121216] text-zinc-400 border border-zinc-800 hover:border-gold px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all">
+                        {{ status }}
+                    </button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Dynamic Projects Grid from Backend Database -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+            {% for project in projects %}
+            <div class="portfolio-card bg-[#09090b] border border-zinc-800 hover:border-gold/60 group overflow-hidden flex flex-col justify-between transition-all duration-300 reveal" data-category="{{ project.status|slugify }}">
+                <div>
+                    <a href="{% url 'project_detail' project.pk %}" class="block relative h-72 overflow-hidden bg-zinc-900">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {% else %}
+                            <img src="{% static 'img/AJMAN REAL ESTATE ARCHITAECTURE.jpg' %}" alt="{{ project.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {% endif %}
+
+                        {% if project.status %}
+                        <div class="absolute top-4 left-4 bg-black/85 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-widest px-3 py-1">
+                            {{ project.status }}
+                        </div>
+                        {% endif %}
+
+                        <div class="absolute bottom-4 right-4 bg-black/85 border border-zinc-700 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">
+                            {% trans "Edrak Managed" %}
+                        </div>
+                    </a>
+
+                    <div class="p-8">
+                        <span class="text-gold text-[10px] font-bold uppercase tracking-widest block mb-2">
+                            {{ project.location }}
+                        </span>
+                        <a href="{% url 'project_detail' project.pk %}">
+                            <h3 class="text-2xl font-black text-white mb-3 group-hover:text-gold transition-colors">
+                                {{ project.title }}
+                            </h3>
+                        </a>
+                        {% if project.description %}
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                            {{ project.description }}
+                        </p>
+                        {% endif %}
+
+                        <!-- Optional Specs if Present on Model -->
+                        <div class="flex flex-wrap gap-4 text-xs text-zinc-300 font-semibold">
+                            {% if project.total_flats %}
+                            <span class="bg-zinc-900 border border-zinc-800 px-3 py-1.5">
+                                <strong class="text-gold">{{ project.total_flats }}</strong> {% trans "Units" %}
+                            </span>
+                            {% endif %}
+                            {% if project.parking %}
+                            <span class="bg-zinc-900 border border-zinc-800 px-3 py-1.5">
+                                <strong class="text-gold">{{ project.parking }}</strong> {% trans "Parking" %}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="px-8 pb-8 pt-4 border-t border-zinc-800/80 flex items-center justify-between gap-4">
+                    <a href="{% url 'project_detail' project.pk %}" class="text-xs font-black uppercase tracking-widest text-white group-hover:text-gold transition-colors">
+                        {% trans "Inspect Building" %} →
+                    </a>
+                    <a href="{% url 'leases' %}?project={{ project.pk }}" class="text-[10px] font-bold uppercase tracking-widest border border-zinc-700 px-3 py-1.5 text-zinc-300 hover:border-gold hover:text-gold transition-colors">
+                        {% trans "Available Units" %}
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full bg-[#09090b] border border-zinc-800 p-12 text-center">
+                <p class="text-zinc-400 text-sm uppercase tracking-widest font-bold">
+                    {% trans "No buildings have been added to the database yet. Add projects in the dashboard to display them here automatically." %}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="mt-14 text-center reveal">
+            <a href="{% url 'projects' %}" class="inline-block border border-gold text-gold px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-black transition-all">
+                {% trans "View Full Projects Directory" %} →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     06. BACKEND-DRIVEN FEATURED LEASES & UNITS
+=========================================== -->
+{% if leases %}
+<section id="live-leases" class="py-28 bg-[#09090b] text-white border-b border-zinc-900">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 reveal">
+            <div>
+                <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">
+                    06 / {% trans "Immediate Residency & Commercial Spaces" %} ({{ total_leases }} {% trans "Active Listings" %})
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight break-words">
+                    {% trans "Featured Units From Our Database" %}
+                </h2>
+            </div>
+            <a href="{% url 'leases' %}" class="text-xs font-bold uppercase tracking-widest text-gold hover:underline">
+                {% trans "Explore All Available Leases" %} →
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for lease in leases %}
+            <div class="bg-[#121216] border border-zinc-800 hover:border-gold/60 group overflow-hidden flex flex-col justify-between transition-all duration-300 reveal">
+                <div>
+                    <a href="{% url 'lease_detail' lease.pk %}" class="block relative h-64 overflow-hidden bg-zinc-900">
+                        {% if lease.image %}
+                            <img src="{{ lease.image.url }}" alt="{{ lease.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {% elif lease.project and lease.project.image %}
+                            <img src="{{ lease.project.image.url }}" alt="{{ lease.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {% else %}
+                            <img src="{% static 'img/real_estate_uae (1).jpg' %}" alt="{{ lease.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {% endif %}
+
+                        {% if lease.property_type %}
+                        <div class="absolute top-4 left-4 bg-black/85 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-widest px-3 py-1">
+                            {{ lease.property_type }}
+                        </div>
+                        {% endif %}
+                    </a>
+
+                    <div class="p-8">
+                        <span class="text-zinc-400 text-[10px] font-bold uppercase tracking-widest block mb-1">
+                            {{ lease.location }}{% if lease.project %} • {{ lease.project.title }}{% endif %}
+                        </span>
+                        <a href="{% url 'lease_detail' lease.pk %}">
+                            <h3 class="text-xl font-black text-white mb-3 group-hover:text-gold transition-colors">
+                                {{ lease.title }}
+                            </h3>
+                        </a>
+                        {% if lease.price %}
+                        <p class="text-2xl font-black text-gold mb-4">
+                            AED {{ lease.price|intcomma }} <span class="text-xs font-semibold text-zinc-400">/ {% trans "Year" %}</span>
+                        </p>
+                        {% endif %}
+                        <div class="flex flex-wrap gap-4 text-xs text-zinc-400 border-t border-zinc-800 pt-4">
+                            {% if lease.bedrooms %}<span><strong class="text-white">{{ lease.bedrooms }}</strong> {% trans "Beds" %}</span>{% endif %}
+                            {% if lease.bathrooms %}<span><strong class="text-white">{{ lease.bathrooms }}</strong> {% trans "Baths" %}</span>{% endif %}
+                            {% if lease.area_sqft %}<span><strong class="text-white">{{ lease.area_sqft|intcomma }}</strong> {% trans "Sq.Ft" %}</span>{% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="px-8 pb-8">
+                    <a href="{% url 'lease_detail' lease.pk %}" class="block w-full text-center bg-zinc-900 border border-zinc-800 text-white py-3.5 text-xs font-bold uppercase tracking-widest group-hover:bg-gold group-hover:text-black transition-colors">
+                        {% trans "View Unit Details" %}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<!-- ==========================================
+     08. INSIDE THE EDRAK OPERATIONAL ENGINE (ACCORDION)
+=========================================== -->
+<section id="operations" class="py-28 md:py-36 bg-white text-zinc-900 border-b border-zinc-200">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+            <div class="lg:col-span-5 reveal">
+                <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">08 / {% trans "Operational Architecture" %}</span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight mb-6 break-words">
+                    {% trans "How We Protect Every Square Foot." %}
+                </h2>
+                <p class="text-zinc-600 text-base leading-relaxed mb-8">
+                    {% trans "Behind Edrak's calm luxury exterior sits a relentless operational machine. Every building in our care undergoes strict daily protocols designed to eliminate landlord headaches and maximize resident satisfaction." %}
+                </p>
+                <div class="border border-zinc-200 bg-zinc-50 p-8">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-zinc-900 mb-3">{% trans "Direct Headquarters Oversight" %}</h4>
+                    <p class="text-sm text-zinc-600 leading-relaxed mb-4">
+                        {% trans "Our doors at Rashidiya Building M5 are open daily. Landlords and tenants speak directly with decision-makers, engineers, and senior portfolio accountants—never an offshore call center." %}
+                    </p>
+                    <span class="text-xs font-bold text-gold uppercase tracking-widest">Rashidiya 2 • Ajman, UAE</span>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-4 reveal">
+                <div class="border border-zinc-200 bg-white">
+                    <button onclick="toggleAccordion(0)" class="w-full p-6 md:p-8 text-left flex justify-between items-center hover:bg-zinc-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-gold font-black text-lg">01</span>
+                            <span class="text-lg md:text-xl font-black text-zinc-900">{% trans "Preventive Engineering & Audited Maintenance" %}</span>
+                        </div>
+                        <span class="acc-icon text-2xl font-light text-gold">−</span>
+                    </button>
+                    <div class="acc-body px-6 md:px-8 pb-8 text-zinc-600 text-sm md:text-base leading-relaxed border-t border-zinc-100 pt-4">
+                        {% trans "Rather than waiting for expensive breakdowns, our technical teams execute scheduled seasonal servicing across all chillers, split AC units, lift rooms, water pumps, and waterproofing membranes. Every material invoice is cross-audited against historical supplier pricing so owners never overpay." %}
+                    </div>
+                </div>
+
+                <div class="border border-zinc-200 bg-white">
+                    <button onclick="toggleAccordion(1)" class="w-full p-6 md:p-8 text-left flex justify-between items-center hover:bg-zinc-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-gold font-black text-lg">02</span>
+                            <span class="text-lg md:text-xl font-black text-zinc-900">{% trans "Zero-Leakage Rent Collection & Legal Custody" %}</span>
+                        </div>
+                        <span class="acc-icon text-2xl font-light text-gold">+</span>
+                    </button>
+                    <div class="acc-body hidden px-6 md:px-8 pb-8 text-zinc-600 text-sm md:text-base leading-relaxed border-t border-zinc-100 pt-4">
+                        {% trans "Our leasing division manages the entire cheque lifecycle—from Tasdeeq contract registration and security deposit custody to automated pre-deposit notifications. If a payment exception ever arises, our in-house legal liaison handles municipal dispute resolution swiftly and compliantly." %}
+                    </div>
+                </div>
+
+                <div class="border border-zinc-200 bg-white">
+                    <button onclick="toggleAccordion(2)" class="w-full p-6 md:p-8 text-left flex justify-between items-center hover:bg-zinc-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-gold font-black text-lg">03</span>
+                            <span class="text-lg md:text-xl font-black text-zinc-900">{% trans "Strategic Capital Appreciation & Refurbishment" %}</span>
+                        </div>
+                        <span class="acc-icon text-2xl font-light text-gold">+</span>
+                    </button>
+                    <div class="acc-body hidden px-6 md:px-8 pb-8 text-zinc-600 text-sm md:text-base leading-relaxed border-t border-zinc-100 pt-4">
+                        {% trans "Older buildings in Ajman often suffer from rental stagnation. Edrak advises on and executes high-ROI modernizations—upgrading lobbies, lighting, kitchens, and sanitary fittings—allowing older family buildings to command premium modern rental rates." %}
+                    </div>
+                </div>
+
+                <div class="border border-zinc-200 bg-white">
+                    <button onclick="toggleAccordion(3)" class="w-full p-6 md:p-8 text-left flex justify-between items-center hover:bg-zinc-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-gold font-black text-lg">04</span>
+                            <span class="text-lg md:text-xl font-black text-zinc-900">{% trans "Bespoke Advisory for Global & Institutional Buyers" %}</span>
+                        </div>
+                        <span class="acc-icon text-2xl font-light text-gold">+</span>
+                    </button>
+                    <div class="acc-body hidden px-6 md:px-8 pb-8 text-zinc-600 text-sm md:text-base leading-relaxed border-t border-zinc-100 pt-4">
+                        {% trans "For investors acquiring whole residential towers, industrial warehouses, or off-plan allocations, we provide unvarnished feasibility studies grounded in 50 years of real transaction data across Ajman and the UAE." %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     09. VOICES OF GENERATIONAL TRUST & FINAL CTA
+=========================================== -->
+<section id="voices" class="py-28 md:py-36 bg-[#050505] text-white">
+    <div class="max-w-[90rem] mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+            <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-3">09 / {% trans "Enduring Relationships" %}</span>
+            <h2 class="text-3xl sm:text-5xl font-black tracking-tight break-words">{% trans "Trusted by Landlords, Investors & Families" %}</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            <div class="bg-[#09090b] border border-zinc-800 p-10 flex flex-col justify-between reveal">
+                <div>
+                    <div class="text-gold text-lg mb-6">★★★★★</div>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8">
+                        "{% trans "Our family has entrusted our Ajman residential buildings to Yousuf Bin Nasser & Sons—and now Edrak Properties—for over two decades. Under Mr. Mohammed Al Nuaimi's leadership, our occupancy has remained near 100% and our maintenance costs are the most transparent in the Emirates." %}"
+                    </p>
+                </div>
+                <div class="border-t border-zinc-800 pt-5">
+                    <p class="font-bold text-white text-sm uppercase tracking-wider">{% trans "Private Multi-Tower Landlord" %}</p>
+                    <p class="text-gold text-xs">{% trans "22-Year Portfolio Client • Ajman & Dubai" %}</p>
+                </div>
+            </div>
+
+            <div class="bg-[#09090b] border border-zinc-800 p-10 flex flex-col justify-between reveal">
+                <div>
+                    <div class="text-gold text-lg mb-6">★★★★★</div>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8">
+                        "{% trans "As an overseas investor, I needed a partner who actually owns buildings and understands facility engineering, not a flashy sales broker. Edrak sourced our commercial asset, vetted every corporate tenant, and deposits our net yield like clockwork." %}"
+                    </p>
+                </div>
+                <div class="border-t border-zinc-800 pt-5">
+                    <p class="font-bold text-white text-sm uppercase tracking-wider">{% trans "GCC Institutional Investor" %}</p>
+                    <p class="text-gold text-xs">{% trans "Commercial & Industrial Portfolio" %}</p>
+                </div>
+            </div>
+
+            <div class="bg-[#09090b] border border-zinc-800 p-10 flex flex-col justify-between reveal">
+                <div>
+                    <div class="text-gold text-lg mb-6">★★★★★</div>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8">
+                        "{% trans "Living in an Edrak-managed building feels completely different from other properties in the city. The security staff know every family, the corridors are spotless, and if an AC ever needs servicing, their technical team arrives the same day." %}"
+                    </p>
+                </div>
+                <div class="border-t border-zinc-800 pt-5">
+                    <p class="font-bold text-white text-sm uppercase tracking-wider">{% trans "Long-Term Resident Family" %}</p>
+                    <p class="text-gold text-xs">{% trans "8-Year Tenant • Rashidiya, Ajman" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Executive Final Call to Action Banner -->
+        <div class="relative bg-gradient-to-r from-[#121216] via-[#18181f] to-[#121216] border-2 border-gold/50 p-10 md:p-20 text-center overflow-hidden reveal">
+            <div class="max-w-3xl mx-auto relative z-10">
+                <span class="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-4">
+                    {% trans "Yousuf Bin Nasser & Sons Pedigree • Edrak Future" %}
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-6 break-words">
+                    {% trans "Place Your Assets in Half-Century Hands." %}
+                </h2>
+                <p class="text-zinc-300 text-base md:text-lg leading-relaxed mb-10">
+                    {% trans "Whether you are looking to assign a residential tower for turnkey management, acquire high-yield UAE real estate, or lease a premier residence or commercial space, our executive team is ready to welcome you." %}
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-5">
+                    <a href="{% url 'contact' %}" class="bg-gold text-black px-10 py-5 text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all">
+                        {% trans "Schedule an Executive Consultation" %}
+                    </a>
+                    <a href="{% url 'projects' %}" class="border border-zinc-600 text-white px-10 py-5 text-xs font-bold uppercase tracking-[0.2em] hover:border-gold hover:text-gold transition-all">
+                        {% trans "Explore All Buildings" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     INTERACTIVE PAGE LOGIC (100% INTERNAL / BACKEND IMAGES)
+=========================================== -->
+<script>
+    // 1. Scroll Reveal & Reading Progress Bar
+    function handleScroll() {
+        document.querySelectorAll(".reveal").forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+                el.classList.add("active");
+            }
+        });
+
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+        const progressBar = document.getElementById("reading-progress");
+        if (progressBar) progressBar.style.width = scrolled + "%";
+    }
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    // 2. Animated Number Counters
+    let countersStarted = false;
+    function runCounters() {
+        const section = document.getElementById("numbers");
+        if (!section || countersStarted) return;
+        if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+            countersStarted = true;
+            document.querySelectorAll(".counter").forEach(counter => {
+                const target = parseFloat(counter.getAttribute("data-target"));
+                const decimals = parseInt(counter.getAttribute("data-decimals") || "0");
+                const duration = 1800;
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = target * easeOut;
+
+                    if (decimals > 0) {
+                        counter.innerText = currentVal.toFixed(decimals);
+                    } else {
+                        counter.innerText = Math.floor(currentVal).toLocaleString();
+                    }
+                    if (progress < 1) requestAnimationFrame(updateCounter);
+                }
+                requestAnimationFrame(updateCounter);
+            });
+        }
+    }
+    window.addEventListener("scroll", runCounters);
+    runCounters();
+
+    // 3. Interactive 50-Year Era Timeline (Using Strictly Backend & Local Static Images)
+    const backendImages = [
+        "{% static 'img/AJMAN REAL ESTATE ARCHITAECTURE.jpg' %}",
+        "{% static 'img/real_estate_uae (1).jpg' %}",
+        "{% if projects.0 and projects.0.image %}{{ projects.0.image.url }}{% else %}{% static 'img/AJMAN REAL ESTATE ARCHITAECTURE.jpg' %}{% endif %}",
+        "{% if projects.1 and projects.1.image %}{{ projects.1.image.url }}{% else %}{% static 'img/real_estate_uae (1).jpg' %}{% endif %}",
+        "{% if projects.2 and projects.2.image %}{{ projects.2.image.url }}{% else %}{% static 'img/AJMAN REAL ESTATE ARCHITAECTURE.jpg' %}{% endif %}"
+    ];
+
+  const eras = [
+        {
+            badge: "{% trans '1970s • Genesis of a Dynasty' %}",
+            title: "{% trans 'Establishment of Yousuf Bin Nasser & Sons Real Estate' %}",
+            desc: "{% trans 'As the United Arab Emirates forged its historic union, Yousuf Bin Nasser & Sons Real Estate established its foundational footprint in Ajman. Focusing on essential housing, merchant commercial spaces, and long-term land banking, the firm earned an immediate reputation among founding families for absolute integrity and fair dealing.' %}",
+            milestone: "{% trans 'First Commercial & Residential Plots in Central Ajman' %}",
+            pillar: "{% trans 'Generational Handshake Trust & Land Stewardship' %}",
+            image: backendImages[0],
+            caption: "{% trans 'Foundational UAE Urban Growth' %}"
+        },
+        {
+            badge: "{% trans '1980s – 1990s • Building the Urban Core' %}",
+            title: "{% trans 'Shaping Ajman\'s Residential & Commercial Corridors' %}",
+            desc: "{% trans 'Throughout the 1980s and 1990s, Yousuf Bin Nasser & Sons scaled rapidly alongside Ajman\'s demographic boom. The firm developed multi-family residential buildings and retail streetfronts across Al Rashidiya and central districts, becoming a trusted custodian for local landlords and regional merchant families.' %}",
+            milestone: "{% trans 'Expansion Across Al Rashidiya & Central Districts' %}",
+            pillar: "{% trans 'Long-Term Tenant Retention & Community Building' %}",
+            image: backendImages[1],
+            caption: "{% trans 'Expanding Commercial & Residential Corridors' %}"
+        },
+        {
+            badge: "{% trans '2000s – 2010s • Institutional Asset Scale' %}",
+            title: "{% trans 'Flagship Multi-Story Towers, Villas & Industrial Hubs' %}",
+            desc: "{% trans 'Entering the new millennium, the portfolio expanded into landmark multi-story buildings and commercial anchors across Ajman, alongside private luxury villas and strategic estates.' %}",
+            milestone: "{% trans 'Over AED 1 Billion in Managed & Owned Assets' %}",
+            pillar: "{% trans 'In-House Engineering & Full-Lifecycle Custody' %}",
+            image: backendImages[2],
+            caption: "{% trans 'Multi-Story Landmark Portfolio' %}"
+        },
+        {
+            badge: "{% trans '2020 – 2024 • The Evolution into Edrak Properties' %}",
+            title: "{% trans 'Modernizing a 50-Year Legacy Under Mr. Mohammed Al Nuaimi' %}",
+            desc: "{% trans 'Led by CEO Mr. Mohammed Yousef Nasser Al Nuaimi, Yousuf Bin Nasser & Sons Real Estate strategically transformed into Edrak Properties. The rebrand united 50+ years of family pedigree with modern institutional governance, digital contract workflows, and data-backed yield advisory.' %}",
+            milestone: "{% trans 'Launch of Edrak Corporate Identity & HQ at Rashidiya M5' %}",
+            pillar: "{% trans 'Data-Driven Yield Optimization & Global Investor Access' %}",
+            image: backendImages[3],
+            caption: "{% trans 'The Edrak Institutional Era' %}"
+        },
+        {
+            badge: "{% trans '2025 – Future • Next-Generation PropTech & Scale' %}",
+            title: "{% trans 'AI-Audited Maintenance, 99.9% Occupancy & Regional Growth' %}",
+            desc: "{% trans 'Today, Edrak Properties operates at the intersection of timeless hospitality and modern engineering—deploying automated invoice auditing, GPS-tracked 24/7 maintenance crews, and real-time financial synchronization to set the gold standard for real estate across the UAE.' %}",
+            milestone: "{% trans '99.9% Portfolio Occupancy & 10,000+ Network Milestone' %}",
+            pillar: "{% trans 'Predictive Asset Protection & Generational Wealth' %}",
+            image: backendImages[4],
+            caption: "{% trans 'Future-Ready Real Estate Infrastructure' %}"
+        }
+    ];
+
+    function selectEra(index) {
+        const data = eras[index];
+        document.getElementById("era-badge").innerText = data.badge;
+        document.getElementById("era-title").innerText = data.title;
+        document.getElementById("era-desc").innerText = data.desc;
+        document.getElementById("era-milestone").innerText = data.milestone;
+        document.getElementById("era-pillar").innerText = data.pillar;
+        document.getElementById("era-image").src = data.image;
+        document.getElementById("era-caption").innerText = data.caption;
+
+        document.querySelectorAll(".era-tab").forEach((btn, idx) => {
+            if (idx === index) {
+                btn.className = "era-tab border border-gold bg-gold text-black py-4 px-4 text-left transition-all";
+            } else {
+                btn.className = "era-tab border border-zinc-800 bg-[#121216] text-zinc-400 hover:border-gold/50 py-4 px-4 text-left transition-all";
+            }
+        });
+    }
+
+    // 4. Interactive Backend Portfolio Filter
+    function filterPortfolio(category, activeBtn) {
+        document.querySelectorAll(".portfolio-btn").forEach(btn => {
+            btn.className = "portfolio-btn bg-[#121216] text-zinc-400 border border-zinc-800 hover:border-gold px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all";
+        });
+        activeBtn.className = "portfolio-btn bg-gold text-black px-5 py-2.5 text-xs font-black uppercase tracking-widest transition-all";
+
+        document.querySelectorAll(".portfolio-card").forEach(card => {
+            if (category === "all" || card.getAttribute("data-category") === category) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    // 5. Interactive Yield Simulator
+    function updateYieldSimulator() {
+        const capital = parseFloat(document.getElementById("calc-capital").value);
+        const years = parseInt(document.getElementById("calc-years").value);
+
+        document.getElementById("calc-capital-display").innerText = "AED " + capital.toLocaleString();
+        document.getElementById("calc-years-display").innerText = years + " Years";
+
+        const standardNetRate = 0.062;
+        const edrakNetRate = 0.092;
+
+        const standardTotal = Math.round(capital * standardNetRate * years);
+        const edrakTotal = Math.round(capital * edrakNetRate * years);
+        const diff = edrakTotal - standardTotal;
+
+        document.getElementById("calc-standard-total").innerText = "AED " + standardTotal.toLocaleString();
+        document.getElementById("calc-edrak-total").innerText = "AED " + edrakTotal.toLocaleString();
+        document.getElementById("calc-alpha-diff").innerText = "+ AED " + diff.toLocaleString();
+    }
+
+    // 6. Interactive Operational Accordion
+    function toggleAccordion(index) {
+        const bodies = document.querySelectorAll(".acc-body");
+        const icons = document.querySelectorAll(".acc-icon");
+        bodies.forEach((body, idx) => {
+            if (idx === index) {
+                const isHidden = body.classList.contains("hidden");
+                body.classList.toggle("hidden", !isHidden);
+                icons[idx].innerText = isHidden ? "−" : "+";
+            } else {
+                body.classList.add("hidden");
+                icons[idx].innerText = "+";
+            }
+        });
+    }
+</script>
+{% endblock %}
